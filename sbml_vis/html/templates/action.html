@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+
+
+<html lang="en">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <head>
+        <meta charset="UTF-8">
+
+        <link media="all" href="http://mimoza.bordeaux.inria.fr/lib/modelmap/modelmap.min.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" type="text/css" href="http://mimoza.bordeaux.inria.fr/lib/FullWidthTabs/component.min.css" />
+        <link rel="stylesheet" type="text/css" href="http://mimoza.bordeaux.inria.fr/lib/FullWidthTabs/demo.min.css" />
+        <link media="all" href="http://mimoza.bordeaux.inria.fr/lib/jquery/jquery-ui.min.css" type="text/css" rel="stylesheet" />
+
+        <link href="http://mimoza.bordeaux.inria.fr/lib/modelmap/fav.ico" type="image/x-icon" rel="shortcut icon" />
+
+        <script src="http://mimoza.bordeaux.inria.fr/lib/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <script src="http://mimoza.bordeaux.inria.fr/lib/jquery/jquery-ui.min.js" type="text/javascript"></script>
+
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <div class="container">
+            <header class="clearfix">
+                <h1>{{h1}}</h1>
+            </header>
+            <div class="indent" id="all">
+                <p>Thank you for uploading your model <span class="emph">{{model_id}}</span>!</p>
+                <p>{{text}}</p>
+                <p>
+                    <span id="expl">{{expl}}</span>
+                    {{more_expl}}
+                </p>
+
+                <div class="centre margin" id="visualize_div">
+                    <form action="/cgi-bin/{{action}}" method="POST" name="input_form" enctype="multipart/form-data">
+                        <input type="hidden" name="sbml" value="{{sbml}}" />
+                        <input type="hidden" name="gen_sbml" value="{{gen_sbml}}" />
+                        <input type="hidden" name="sbgn" value="{{sbgn}}" />
+                        <input type="hidden" name="gen_sbgn" value="{{gen_sbgn}}" />
+                        <input type="hidden" name="dir" value="{{m_dir_id}}" />
+                        <input class="ui-button img-centre" type="submit" id="bb" value="Go!" onclick="progress()"/>
+                    </form>
+                </div>
+
+                <img class="img-centre" src="{{progress_icon}}" style="visibility:hidden" id="img" />
+
+                <script type="text/javascript">
+                    function progress() {
+                        document.getElementById("img").style.visibility="visible";
+                        document.getElementById("visualize_div").style.visibility="hidden";
+                        var span = document.getElementById('expl');
+                        while (span.firstChild) {
+                            span.removeChild(span.firstChild);
+                        }
+                        span.appendChild(document.createTextNode("We are currently processing your model..."));
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>

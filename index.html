@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Mimoza: metabolic model visualization and navigation system.</title>
+		<meta name="description" content="Mimoza: metabolic model visualization and navigation system." />
+		<meta name="keywords" content="metabolic models, visualization, navigation, knowledge-based generalization" />
+		<meta name="author" content="Anna Zhukova" />
+		<link rel="shortcut icon" href="lib/modelmap/fav.ico">
+		<link rel="stylesheet" type="text/css" href="lib/FullWidthTabs/component.min.css" />
+        <link rel="stylesheet" type="text/css" href="lib/FullWidthTabs/demo.min.css" />
+        <link rel="stylesheet" type="text/css" href="lib/modelmap/modelmap.min.css" />
+		<!--[if IE]>
+  		<script src="lib/html5.min.js" type="text/javascript"></script>
+		<![endif]-->
+        <script src="lib/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="lib/jquery/jquery-ui.min.css" />
+        <script type="text/javascript">
+            function checkSBML() {
+                var file = $('#model_file')[0].files[0];
+                var re = /(\.sbml|\.xml)$/i;
+                if (file && re.exec(file.name)) {
+                    document.getElementById("path").innerHTML = file.name;
+                    document.getElementById("select-button").style.visibility = "hidden";
+                    document.getElementById("submit-button").style.visibility = "visible";
+                    return true;
+                } else {
+                    alert('Please choose an SBML file (.xml or .sbml).');
+                    document.getElementById("path").innerHTML = '';
+                    return false;
+                }
+            }
+            function progress() {
+                var img = document.getElementById("img");
+                img.style.visibility = "visible";
+                img.style.height = "auto";
+                var inputDiv = document.getElementById("input_div");
+                inputDiv.style.visibility = "hidden";
+                inputDiv.style.height = "0px";
+                document.getElementById("input_form").style.visibility = "hidden";
+                document.getElementById("submit-button").style.visibility = "hidden";
+            }
+        </script>
+	</head>
+	<body>
+		<div class="container">
+			<header class="clearfix">
+				<h1>Welcome to Mimoza, a metabolic model visualization and navigation system!</h1>
+				<!--<nav>-->
+					<!--<a href="http://mimoza.bordeaux.inria.fr" class="icon-home3" data-info="Mimoza home"><span>Home</span></a>-->
+				<!--</nav>-->
+			</header>
+			<div id="tabs" class="tabs">
+				<nav>
+					<ul>
+                        <li><a href="#tab-try" class="icon-happy"><span>Try!</span></a></li>
+                        <li><a href="#tab-descr" class="icon-quill"><span>About</span></a></li>
+                        <li><a href="#tab-download" class="icon-floppy-disk"><span>Download</span></a></li>
+                        <li><a href="#tab-examples" class="icon-stack"><span>Examples</span></a></li>
+					</ul>
+				</nav>
+				<div class="content">
+                    <section id="tab-try">
+                        <div class="just">
+                            <p class="centre">Try <span class="emph">Mimoza</span> now by submitting your
+                                model (in <a href="http://sbml.org/" target="_blank">SBML</a>
+                                format): </p>
+
+                            <div class="centre" id="input_div">
+                                <form style="margin: 4%" name="input_form" enctype="multipart/form-data" action="/cgi-bin/upload.py"
+                                      method="POST" id="input_form">
+                                    <span id='select-button' class="up-button" onclick="document.getElementById('model_file').click();">
+                                        Select SBML file</span><span class='explanation' id="path" style="padding: 2px"></span>
+                                    <input type="file" name="file_input" id="model_file"
+                                           style="display: none"
+                                           accept="text/xml,text/sbml,.sbml,.xml" onchange="return checkSBML();"/>
+                                    <input id="submit-button" class="up-button" type="submit" value="Submit" onclick="progress()"
+                                            style="visibility: hidden"/>
+                                </form>
+                            </div>
+                            <div style="visibility: hidden;" id="img" class="centre">
+                                <img src="lib/modelmap/ajax-loader.gif" class="centre"/>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="tab-descr">
+                        <div class="mediabox">
+                            <p><span class="emph">Mimoza</span> combines the
+                                <a href="http://metamogen.gforge.inria.fr/" target="_blank">model generalization method</a>
+                                with the <a href="http://en.wikipedia.org/wiki/Zooming_user_interface" target="_blank">zooming user interface (ZUI)</a>
+                                paradigm and allows a human expert to explore metabolic network models in a semantically zoomable manner.</p>
+                            <p><span class="emph">Mimoza</span> takes a metabolic model
+                                in <a href="http://sbml.org/" target="_blank">SBML</a> format,
+                                <a href="http://metamogen.gforge.inria.fr/" target="_blank">generalizes</a> it to detect similar metabolites and similar reactions,
+                                and automatically creates a 3-level zoomable map:
+                            </p>
+                                <ul>
+                                    <li><span class="emph">the most detailed view</span> represents the initial network with the
+                                        generalization-based layout (similar metabolites and reactions are placed next to each
+                                        other).
+                                    <li><span class="emph">the intermediate view</span> shows the <a
+                                            href="http://metamogen.gforge.inria.fr/" target="_blank">generalized</a> versions of
+                                        reactions and metabolites in each compartment;
+                                    <li><span class="emph">the general view</span> represents the compartments and
+                                        the transport reactions between them.
+                                </ul>
+                            <p>The network map can be browsed online or downloaded as a <a href="http://co.mbine.org/documents/archive" target="_blank">COMBINE archive</a>
+                            containing:
+                                <ul>
+                                    <li>all the files needed for offline browsing;
+                                    <li><a href="http://sbml.org/" target="_blank">SBML</a> files
+                                with the <a href="http://sbml.org/Documents/Specifications/SBML_Level_3/Packages/groups" target="_blank">groups</a>
+                                and <a href="http://sbml.org/Documents/Specifications/SBML_Level_3/Packages/layout" target="_blank">layout</a> extensions,
+                                representing the initial and generalized versions of the model and their layouts;
+                                    <li><a href="http://www.sbgn.org/" target="_blank">SBGN</a> representation of the model.
+                                </ul>
+                            </p>
+                        </div>
+                        <div class="mediabox">
+                            <p>To learn more about or to cite <span class="emph">Mimoza</span>, see: <br>
+                                Zhukova, A., Sherman, D. J. (2015).
+                                <b>Mimoza: Web-Based Semantic Zooming and Navigation in Metabolic Networks.</b>
+                                <i>BMC Systems Biology</i>, <b>9</b>:10
+                                <a href="http://identifiers.org/doi/10.1186/s12918-015-0151-5" target="_blank">doi:10.1186/s12918-015-0151-5</a>.
+                            </p>
+                            <p><span class="emph">Mimoza</span> is developed by the
+                                <a href="https://team.inria.fr/magnome/" target="_blank">MAGNOME</a> team at the
+                                <a href="http://www.inria.fr/en/centre/bordeaux" target="_blank">Inria Bordeaux</a>
+                                research center. For any questions and comments please contact
+                                <a href="mailto:zhutchok@gmail.com" target="_blank">zhutchok@gmail.com</a>.
+                            </p>
+                            <!--<p class="centre"><img src="./lib/modelmap/mimoza-pic.jpg" width="70%" alt="Navigation with Mimoza"/></p>-->
+                            <!--<iframe src="http://player.vimeo.com/video/102616835?byline=0&amp;portrait=0&amp;color=ffffff"-->
+                                    <!--width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen-->
+                                    <!--allowfullscreen></iframe>-->
+                        </div>
+                    </section>
+                    <section id="tab-download">
+                        <div class="just">
+                            <p><a href="Mimoza.zip" download>Mimoza.zip</a> - download the <span class="emph">Mimoza</span> code.
+                                You can install it locally, or as a <a
+                                        href="https://wiki.galaxyproject.org/"
+                                        target="_blank">Galaxy</a> tool (<a href="Mimoza.xml" download>download the config
+                                    file</a>).</p>
+                            <p>The <i>README</i> file inside the <a href="Mimoza.zip" download>Mimoza.zip</a> archive provides the installation and usage instructions.</p>
+                        </div>
+                    </section>
+                    <section id="tab-examples">
+                        <div class="just mediabox">
+                        <p>This is a <a href="http://mimoza.bordeaux.inria.fr/yali_pero/comp.html?id=c_14" target="blank">
+                            peroxisome</a> of a yeast <i>Y. lipolytica</i>. Zoom in to see the details.</p>
+                        <iframe src="http://mimoza.bordeaux.inria.fr/yali_pero/comp_min.html?id=c_14"
+                                            width="512" height="280" frameborder="0" style="border:0"></iframe>
+                        </div>
+                        <div class="just mediabox">
+                            <p>Or have a look at the visualizations of:</p>
+                            <ul>
+                                <li>the consensus <a href="http://mimoza.bordeaux.inria.fr/yeast7" target="_blank">
+                                    yeast</a> network [<a href="http://dx.doi.org/10.1089/ind.2013.0013"
+                                                                       target="_blank">Aung <i>et al.</i> (2013)</a>]</li>
+                                <li>the genome-scale model of <a href="http://mimoza.bordeaux.inria.fr/yali" target="_blank">
+                                    <i>Y. lipolytica</i></a> [<a
+                                        href="http://www.biomedcentral.com/1752-0509/6/35"
+                                        target="_blank">Loira <i>et al.</i> (2013)</a>]</li>
+                                <li>the consensus <a href="http://mimoza.bordeaux.inria.fr/ecoli1_2" target="_blank">
+                                    <i>E. coli</i></a> network [<a
+                                        href="http://arxiv.org/abs/1304.2960"
+                                        target="_blank">Smallbone <i>et al.</i> (2013)</a>]</li>
+                            </ul>
+                        </div>
+                    </section>
+				</div><!-- /content -->
+			</div><!-- /tabs -->
+            <p class="info">
+                    <span class="emph">Mimoza</span> is powered by <a href="http://leafletjs.com/" target="_blank">Leaflet</a>,
+                    <a href="http://metamogen.gforge.inria.fr/" target="_blank">Model generalization library</a>,
+                    <a href="http://www.ebi.ac.uk/chebi/" target="_blank">ChEBI</a>,
+                    <a href="http://tulip.labri.fr/" target="_blank">Tulip</a>,
+                    <a href="http://geojson.org/" target="_blank">GeoJSON</a>,
+                    <a href="http://jquery.com/" target="_blank">jQuery</a>,
+                    <a href="http://www.python.org/" target="_blank">Python</a>,
+                    <a href="http://sbml.org/Software/libSBML" target="_blank">libSBML</a>,
+                    <a href="https://github.com/matthiaskoenig/libsbgn-python" target="_blank">Python API for libSBGN</a>,
+                    <a href="http://www.codrops.com" target="_blank">Codrops</a>,
+                    <a href="https://icomoon.io" target="_blank">IcoMoon</a>,
+                    and <a href="http://www.jetbrains.com/pycharm/" target="_blank">PyCharm</a>.
+            </p>
+		</div>
+		<script src="lib/FullWidthTabs/cbpFWTabs.min.js"></script>
+		<script type="text/javascript">
+            new CBPFWTabs(document.getElementById('tabs'));
+        </script>
+	</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link media="all" href="lib/modelmap/modelmap.min.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/leaflet/leaflet.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/leaflet_label/leaflet.label.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/leaflet/leaflet.fusesearch.min.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/jquery/jquery-ui.min.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="lib/FullWidthTabs/component.min.css" />
+    <link rel="stylesheet" type="text/css" href="lib/FullWidthTabs/demo.min.css" />
+
+    <link href="lib/modelmap/fav.ico" type="image/x-icon" rel="shortcut icon" />
+
+    <title>
+        {% if title %}
+            {{title}}
+        {% else %}
+            {{model_name}}
+        {% endif %}
+    </title>
+
+    <script src="lib/leaflet/leaflet.js" type="text/javascript"></script>
+    <script src="lib/leaflet_label/leaflet.label.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="lib/modelmap/maptools.min.js" type="text/javascript"></script>
+    <script src="lib/modelmap/popup_formatter.min.js" type="text/javascript"></script>
+    <script src="lib/modelmap/geojson_manager.min.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="lib/onlinehtmltools/skinable_tabs.min.js" type="text/javascript"></script>
+    <!--[if IE]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script>L_PREFER_CANVAS = true;</script>
+</head>
+<body>
+    <div class="container">
+        <header class="clearfix">
+            <h1>
+                {% if title %}
+                    {{title}}
+                {% else %}
+                    Visualization of <a href="http://www.ebi.ac.uk/biomodels-main/{{model_id}}">{{model_name}}</a>
+                {% endif %}
+            </h1>
+            <nav>
+                <a href="http://mimoza.bordeaux.inria.fr" class="bp-icon icon-home3" data-info="Home"><span>Home</span></a>
+            </nav>
+        </header>
+        <div id="tabs" class="tabs">
+            <nav>
+                <ul>
+                    <li><a href="#tab-viz" id="a-{{map_id}}" class="icon-happy"><span>Visualization</span></a></li>
+                    {% if tab2html %}
+                        {% set i = 0 %}
+                        {% for (tab, (html, class)) in tab2html.iteritems() %}
+                            <li>
+                                <a href="#tab-{{i}}" class="{% if class %}{{class}}{% else %}icon-stats-dots{% endif %}">
+                                    <span>{{tab}}</span>
+                                </a>
+                            </li>
+                            {% set i = i + 1 %}
+                        {% endfor %}
+                    {% endif %}
+                </ul>
+            </nav>
+            <div class="content">
+                <section id="tab-viz">
+                    {% if non_empty %}
+                        {% if comp_c_id2name %}
+                            <ul class="menu margin centre">
+                            {% for (c_id, c_name) in comp_c_id2name %}
+                                <li><a href="?id={{c_id}}" class='menu_{{c_id}}'>{{c_name}}</a></li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <div id="search">
+                            <form id="search_form_{{map_id}}" name="search_form">
+                            <label><input type="text" name="search_input" id="tags_{{map_id}}" /></label>
+                            <input type="button" value="Search" />
+                            </form>
+                        </div>
+                        <div class="map ui-widget-content" id="{{map_id}}"></div>
+                        <div id="explanations">
+                            <p class="info">
+                                <span class="emph">Zoom in/out</span> to see more/less details.
+                                <span class="emph">Click</span> on elements to see their annotations.
+                                <span class="emph">Show/Hide</span> elements in the map settings <span class="explanation">(top right of the map view)</span>.
+                            </p>
+                            {% if info %}
+                                <p class="info">{{info}}</p>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <p class="centre">Your model does not contain any reactions and thus could not be visualized.</p>
+                    {% endif %}
+                </section>
+
+                {% if tab2html %}
+                    {% set i = 0 %}
+                    {% for (tab, (html, class)) in tab2html.iteritems() %}
+                        <section id="tab-{{i}}">
+                            <div class="just">
+                                {{html}}
+                            </div>
+                        </section>
+                        {% set i = i + 1 %}
+                    {% endfor %}
+                {% endif %}
+            </div><!-- /content -->
+        </div><!-- /tabs -->
+    </div>
+    <script src="lib/FullWidthTabs/cbpFWTabs.min.js"></script>
+    <script>new CBPFWTabs(document.getElementById('tabs'));</script>
+    {% for json in json_files %}
+        <script src="{{json}}" type="text/javascript"></script>
+    {% endfor %}
+    <script type="text/javascript">
+        initializeMap({{c_id2json_vars}}, "{{map_id}}", {{c_id2name}}, {{c_id2out_c_id}}, {{c_id_hidden_ubs}},
+        {{hidden_c_ids}}, {{layer2mask}}, {{invisible_layers}});
+    </script>
+    <script>$(function() {$("#{{map_id}}").resizable();});</script>
+</body>
+</html>

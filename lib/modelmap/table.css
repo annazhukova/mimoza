@@ -1,0 +1,70 @@
+table, tr, td, th {
+    border-collapse:collapse;
+}
+div.scrollingDiv {
+   overflow:auto;
+}
+tr.header {
+    cursor:pointer;
+    background-color: rgba(131, 214, 242, 0.75);
+    font-size: 1.05em;
+    font-weight: 600;
+}
+.hidden {
+    display: none;
+}
+.sub_pw{
+    background-color: rgba(131, 214, 242, 0.4);
+}
+tr.sub_header {
+    cursor:pointer;
+    background-color: rgba(183, 237, 218, 0.5);
+    font-size: 1.025em;
+    font-weight: 500;
+}
+.sub_sub_pw{
+    background-color: rgba(183, 237, 218, 0.3);
+}
+td.clicable {
+    cursor:pointer;
+    background-color: rgba(220, 188, 245, 0.75);
+    font-size: 1.05em;
+    font-weight: 600;
+}
+th.clicable {
+    cursor:pointer;
+    background-color: rgba(220, 188, 245, 1);
+    font-size: 1.05em;
+    font-weight: 600;
+}
+th.white {
+    background-color: rgba(255, 255, 255, 1);
+}
+td.sub_r {
+    background-color: rgba(220, 188, 245, 0.4);
+}
+th.sub_r {
+    background-color: rgba(220, 188, 245, 1);
+}
+td.subclicable {
+    cursor:pointer;
+    background-color: rgba(245, 195, 180, 0.5);
+    font-size: 1.025em;
+    font-weight: 500;
+}
+th.subclicable {
+    cursor:pointer;
+    background-color: rgba(245, 195, 180, 1);
+    font-size: 1.025em;
+    font-weight: 500;
+}
+td.sub_sub_r {
+    background-color: rgba(245, 195, 180, 0.3);
+}
+th.sub_sub_r {
+    background-color: rgba(245, 195, 180, 1);
+}
+.full_width {
+    max-width: 100%;
+    max-height: 100%;
+}

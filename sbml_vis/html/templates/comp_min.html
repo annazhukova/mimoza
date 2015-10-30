@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01 Transitional//EN'>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link media="all" href="lib/modelmap/modelmap.min.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/leaflet/leaflet.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/leaflet_label/leaflet.label.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/leaflet/leaflet.fusesearch.min.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="lib/jquery/jquery-ui.min.css" type="text/css" rel="stylesheet" />
+
+    <link href="lib/modelmap/fav.ico" type="image/x-icon" rel="shortcut icon" />
+
+    <title>{{model_name}}</title>
+
+    <script src="lib/leaflet/leaflet.js" type="text/javascript"></script>
+    <script src="lib/leaflet_label/leaflet.label.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="lib/modelmap/maptools.min.js" type="text/javascript"></script>
+    <script src="lib/modelmap/popup_formatter.min.js" type="text/javascript"></script>
+    <script src="lib/modelmap/geojson_manager.min.js" type="text/javascript"></script>
+    <script src="lib/jquery/jquery-ui.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="map ui-widget-content" id="{{map_id}}"></div>
+    {% for json in json_files %}
+        <script src="{{json}}" type="text/javascript"></script>
+    {% endfor %}
+    <script>L_PREFER_CANVAS = true;</script>
+    <script type="text/javascript">
+        initializeMap({{c_id2json_vars}}, "{{map_id}}", {{c_id2name}}, {{c_id2out_c_id}}, {{c_id_hidden_ubs}},
+        {{hidden_c_ids}}, {{layer2mask}}, {{invisible_layers}})
+    </script>
+    <script>$(function() {$("#{{map_id}}").resizable();});</script>
+</body>
+</html>

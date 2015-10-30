@@ -1,0 +1,19 @@
+<table class="p_table" border="0" width="100%">
+    <tr>
+        <td width="45%">
+            <table border="0">
+                {% for m, st in rs %}
+                    <tr><td class="main">{{st}}&nbsp;</td><td>{{m}}</td></tr>
+                {% endfor %}
+            </table>
+        </td>
+        <th class="centre" width="10%%">{% if reversible %}&#8596;{% else %}&#8594;{% endif %}</th>
+        <td  width="45%">
+            <table border="0">
+                {% for m, st in ps %}
+                    <tr><td class="main">{{st}}&nbsp;</td><td>{{m}}</td></tr>
+                {% endfor %}
+            </table>
+        </td>
+    </tr>
+</table>

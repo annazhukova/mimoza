@@ -1,0 +1,17 @@
+<tool id="mimoza" name="Mimoza" version="1.0.0" hidden="false">
+  <description>Mimoza is a navigation system that allows to explore metabolic models in a semantically zoomable manner.</description>
+  <command interpreter="python">main.py --model=$input</command>
+  <inputs>
+    <param format="sbml" name="input" type="file" label="Input SBML"/>
+  </inputs>
+  <outputs>
+    <data format="COMBINE archive" name="output" type="file"/>
+  </outputs>
+
+  <tests/>
+
+  <help>
+This tool visualizes an SBML model in a semantically zoomable manner.
+  </help>
+
+</tool>

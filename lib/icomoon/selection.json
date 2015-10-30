@@ -1,0 +1,242 @@
+{
+	"IcoMoonType": "selection",
+	"icons": [
+		{
+			"icon": {
+				"paths": [
+					"M1024 608l-192-192v-288h-128v160l-192-192-512 512v32h128v320h320v-192h128v192h320v-320h128z"
+				],
+				"attrs": [],
+				"tags": [
+					"home",
+					"house"
+				],
+				"defaultCode": 57346,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 52,
+				"order": 8,
+				"prevSize": 32,
+				"code": 59650,
+				"ligatures": "home3, house3",
+				"name": "home3"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 2
+		},
+		{
+			"icon": {
+				"paths": [
+					"M0 1024c128-384 463-1024 1024-1024-263 211-384 704-576 704s-192 0-192 0l-192 320h-64z"
+				],
+				"attrs": [],
+				"tags": [
+					"quill",
+					"feather",
+					"write",
+					"edit"
+				],
+				"defaultCode": 57363,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 70,
+				"order": 5,
+				"prevSize": 32,
+				"code": 59655,
+				"ligatures": "quill, feather",
+				"name": "quill"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 7
+		},
+		{
+			"icon": {
+				"paths": [
+					"M1024 320l-512-256-512 256 512 256 512-256zM512 148.97l342.058 171.030-342.058 171.030-342.058-171.030 342.058-171.030zM921.444 460.722l102.556 51.278-512 256-512-256 102.556-51.278 409.444 204.722zM921.444 652.722l102.556 51.278-512 256-512-256 102.556-51.278 409.444 204.722z"
+				],
+				"attrs": [],
+				"tags": [
+					"stack",
+					"layers"
+				],
+				"defaultCode": 57494,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 214,
+				"order": 6,
+				"prevSize": 32,
+				"code": 59694,
+				"ligatures": "stack, layers",
+				"name": "stack"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 46
+		},
+		{
+			"icon": {
+				"paths": [
+					"M896 0h-896v1024h1024v-896l-128-128zM512 128h128v256h-128v-256zM896 896h-768v-768h64v320h576v-320h74.978l53.022 53.018v714.982z"
+				],
+				"attrs": [],
+				"tags": [
+					"floppy-disk",
+					"save"
+				],
+				"defaultCode": 57652,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 376,
+				"order": 4,
+				"prevSize": 32,
+				"code": 59746,
+				"ligatures": "floppy-disk, save2",
+				"name": "floppy-disk"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 98
+		},
+		{
+			"icon": {
+				"paths": [
+					"M128 896h896v128h-1024v-1024h128zM288 832c-53.020 0-96-42.98-96-96s42.98-96 96-96c2.828 0 5.622 0.148 8.388 0.386l103.192-171.986c-9.84-15.070-15.58-33.062-15.58-52.402 0-53.020 42.98-96 96-96s96 42.98 96 96c0 19.342-5.74 37.332-15.58 52.402l103.192 171.986c2.766-0.238 5.56-0.386 8.388-0.386 2.136 0 4.248 0.094 6.35 0.23l170.356-298.122c-10.536-15.408-16.706-34.036-16.706-54.11 0-53.020 42.98-96 96-96s96 42.98 96 96c0 53.020-42.98 96-96 96-2.14 0-4.248-0.094-6.35-0.232l-170.356 298.124c10.536 15.406 16.706 34.036 16.706 54.11 0 53.020-42.98 96-96 96s-96-42.98-96-96c0-19.34 5.74-37.332 15.578-52.402l-103.19-171.984c-2.766 0.238-5.56 0.386-8.388 0.386s-5.622-0.146-8.388-0.386l-103.192 171.986c9.84 15.068 15.58 33.060 15.58 52.4 0 53.020-42.98 96-96 96z"
+				],
+				"attrs": [],
+				"tags": [
+					"stats-dots",
+					"stats",
+					"plot",
+					"statistics",
+					"chart"
+				],
+				"defaultCode": 57854,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 600,
+				"order": 10,
+				"prevSize": 32,
+				"code": 59803,
+				"ligatures": "stats-dots, stats2",
+				"name": "stats-dots"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 155
+		},
+		{
+			"icon": {
+				"paths": [
+					"M736 448l-256 256-256-256h160v-384h192v384zM480 704h-480v256h960v-256h-480zM896 832h-128v-64h128v64z"
+				],
+				"attrs": [],
+				"tags": [
+					"download",
+					"save",
+					"store"
+				],
+				"defaultCode": 58048,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 798,
+				"order": 9,
+				"prevSize": 32,
+				"code": 59847,
+				"ligatures": "download3, save5",
+				"name": "download3"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 199
+		},
+		{
+			"icon": {
+				"paths": [
+					"M512 1024c282.77 0 512-229.23 512-512s-229.23-512-512-512-512 229.23-512 512 229.23 512 512 512zM512 96c229.75 0 416 186.25 416 416s-186.25 416-416 416-416-186.25-416-416 186.25-416 416-416zM512 598.76c115.95 0 226.23-30.806 320-84.92-14.574 178.438-153.128 318.16-320 318.16-166.868 0-305.422-139.872-320-318.304 93.77 54.112 204.050 85.064 320 85.064zM256 352c0-53.019 28.654-96 64-96s64 42.981 64 96c0 53.019-28.654 96-64 96s-64-42.981-64-96zM640 352c0-53.019 28.654-96 64-96s64 42.981 64 96c0 53.019-28.654 96-64 96s-64-42.981-64-96z"
+				],
+				"attrs": [],
+				"tags": [
+					"happy",
+					"emoticon",
+					"smiley",
+					"face"
+				],
+				"defaultCode": 58142,
+				"grid": 16
+			},
+			"attrs": [],
+			"properties": {
+				"id": 894,
+				"order": 7,
+				"prevSize": 32,
+				"code": 59871,
+				"ligatures": "happy, emoticon",
+				"name": "happy"
+			},
+			"setIdx": 0,
+			"setId": 0,
+			"iconIdx": 223
+		}
+	],
+	"height": 1024,
+	"metadata": {
+		"name": "icomoon"
+	},
+	"preferences": {
+		"showGlyphs": true,
+		"showQuickUse": true,
+		"showQuickUse2": true,
+		"showSVGs": true,
+		"fontPref": {
+			"prefix": "icon-",
+			"metadata": {
+				"fontFamily": "icomoon",
+				"majorVersion": 1,
+				"minorVersion": 0
+			},
+			"metrics": {
+				"emSize": 1024,
+				"baseline": 6.25,
+				"whitespace": 50
+			},
+			"autoHost": true,
+			"ie7": true,
+			"includeMetadata": true,
+			"embed": true,
+			"cssVars": true,
+			"showSelector": true,
+			"showMetrics": true,
+			"showMetadata": true,
+			"showVersion": true,
+			"resetPoint": 58880
+		},
+		"imagePref": {
+			"prefix": "icon-",
+			"png": true,
+			"useClassSelector": true,
+			"color": 4473924,
+			"bgColor": 16777215
+		},
+		"historySize": 100,
+		"showCodes": true,
+		"quickUsageToken": {
+			"UntitledProject": "N2VmNDhlNTY2ZjkxNmUxMmQxYmM2OTgwYTIzN2ZjODEjMSMxNDM2MjYwNDA1IyMj"
+		},
+		"fontHostingName": false,
+		"showLiga": true
+	}
+}
