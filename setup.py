@@ -10,7 +10,7 @@ if version < '2.2.3':
     DistributionMetadata.download_url = None
 
 
-setup(name='Mimoza',
+setup(name='mimoza',
       description='SBML zoomable visualization utilities.',
       long_description=open('README.txt').read(),
       author='Anna Zhukova',

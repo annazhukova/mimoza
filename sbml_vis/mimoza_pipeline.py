@@ -4,6 +4,7 @@ from os.path import dirname, abspath
 from shutil import copytree
 
 import libsbml
+import sbml_vis
 
 from sbml_vis.graph.color.color import color_by_id
 from sbml_vis.graph.color.color import color
@@ -14,8 +15,6 @@ from sbml_vis.converter.tulip_graph2geojson import graph2geojson
 from sbml_vis.file.md5_checker import check_md5
 from sbml_vis.file.serializer import serialize, ABOUT_TAB, DOWNLOAD_TAB
 from sbml_generalization.generalization.sbml_generalizer import generalize_model, ubiquitize_model
-from mimoza.mimoza_path import MIMOZA_URL
-import mimoza
 from mod_sbml.onto import parse_simple
 from mod_sbml.annotation.chebi.chebi_serializer import get_chebi
 from sbml_vis.converter.sbgn_helper import save_as_sbgn
@@ -27,7 +26,7 @@ __author__ = 'anna'
 
 
 def get_lib():
-    return os.path.join(os.path.dirname(os.path.abspath(mimoza.mimoza_path.__file__)), '..', 'lib')
+    return os.path.join(os.path.dirname(os.path.abspath(sbml_vis.__file__)), '..', 'lib')
 
 
 def process_sbml(sbml, verbose, ub_ch_ids=None, path=None, generalize=True, log_file=None,

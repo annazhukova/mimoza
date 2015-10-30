@@ -18,7 +18,7 @@ except ImportError:
 from sbml_vis.converter.sbml_manager import parse_layout_sbml, LoPlError, save_as_layout_sbml
 from sbml_vis.file.serializer import serialize
 from sbml_vis.converter.sbml2tlp import import_sbml
-from mimoza.mimoza_path import *
+from sbml_vis.mimoza_path import *
 from sbml_vis.converter.tulip_graph2geojson import graph2geojson
 from mod_sbml.onto import parse_simple
 from mod_sbml.annotation.chebi.chebi_serializer import get_chebi

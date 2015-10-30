@@ -12,7 +12,7 @@ import libsbml
 from sbml_generalization.generalization.sbml_generalizer import generalize_model
 from mod_sbml.onto import parse_simple
 from mod_sbml.annotation.chebi.chebi_serializer import get_chebi
-from mimoza.mimoza_path import *
+from sbml_vis.mimoza_path import *
 from sbml_vis.html.html_t_generator import create_thanks_for_uploading_html, generate_generalization_finished_html
 
 cgitb.enable()

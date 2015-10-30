@@ -1,0 +1,40 @@
+<section id="tab-viz">
+    <script>L_PREFER_CANVAS = true;</script>
+    {% if non_empty %}
+        {% if comp_c_id2name %}
+            <ul class="menu margin centre">
+            {% for (c_id, c_name) in comp_c_id2name %}
+                <li><a href="?id={{c_id}}" class='menu_{{c_id}}'>{{c_name}}</a></li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <div id="search">
+            <form id="search_form_{{map_id}}" name="search_form">
+            <label><input type="text" name="search_input" id="tags_{{map_id}}" /></label>
+            <input type="button" value="Search" />
+            </form>
+        </div>
+        <div class="map ui-widget-content" id="{{map_id}}"></div>
+        <div id="explanations">
+            <p class="info">
+                <span class="emph">Zoom in/out</span> to see more/less details.
+                <span class="emph">Click</span> on elements to see their annotations.
+                <span class="emph">Show/Hide</span> elements in the map settings <span class="explanation">(top right of the map view)</span>.
+            </p>
+            {% if info %}
+                <p class="info">{{info}}</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <p class="centre">Your model does not contain any reactions and thus could not be visualized.</p>
+    {% endif %}
+
+    {% for json in json_files %}
+        <script src="{{json}}" type="text/javascript"></script>
+    {% endfor %}
+    <script type="text/javascript">
+        initializeMap({{c_id2json_vars}}, "{{map_id}}", {{c_id2name}}, {{c_id2out_c_id}}, {{c_id_hidden_ubs}},
+        {{hidden_c_ids}}, {{layer2mask}}, {{invisible_layers}});
+    </script>
+    <script>$(function() {$("#{{map_id}}").resizable();});</script>
+</section>

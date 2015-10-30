@@ -19,11 +19,8 @@ JQUERY_UI_CSS = 'lib/jquery/jquery-ui.min.css'
 
 LEAFLET_LABEL_JS = 'lib/leaflet_label/leaflet.label.js'
 LEAFLET_JS = 'lib/leaflet/leaflet.js'
-FUSE_JS = 'lib/leaflet/fuse.min.js'
-LEAFLET_SEARCH_JS = 'lib/leaflet/leaflet.fusesearch.min.js'
 LEAFLET_LABEL_CSS = 'lib/leaflet_label/leaflet.label.css'
 LEAFLET_CSS = 'lib/leaflet/leaflet.css'
-LEAFLET_SEARCH_CSS = 'lib/leaflet/leaflet.fusesearch.min.css'
 
 TABS_JS = 'lib/onlinehtmltools/skinable_tabs.min.js'
 TABS_CSS = 'lib/onlinehtmltools/skins/skin11/top.css'

@@ -8,13 +8,13 @@ import cgitb
 from shutil import copytree
 import sys
 import base64
+
 import libsbml
 
 from sbml_vis.html.html_t_generator import create_thanks_for_uploading_html, generate_uploaded_generalized_sbml_html
 from sbml_vis.file.md5_checker import check_md5
-from mimoza.mimoza_path import *
+from sbml_vis.mimoza_path import *
 from sbml_generalization.sbml.sbml_helper import check_for_groups, SBO_CHEMICAL_MACROMOLECULE, GROUP_TYPE_UBIQUITOUS
-
 
 ALREADY_EXISTS = 1
 OK = 0
