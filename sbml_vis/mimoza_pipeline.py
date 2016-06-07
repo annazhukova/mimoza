@@ -36,6 +36,7 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, path=None, generalize=True, log_
     doc = reader.readSBML(sbml)
     model = doc.getModel()
     if not model:
+        print sbml
         raise Exception("The model should be in SBML format")
     model_id = model.getId()
     if not model_id:

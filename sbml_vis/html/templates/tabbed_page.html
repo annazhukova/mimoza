@@ -8,15 +8,11 @@
     <link media="all" href="lib/jquery/jquery-ui.min.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="lib/FullWidthTabs/component.min.css" />
     <link rel="stylesheet" type="text/css" href="lib/FullWidthTabs/demo.min.css" />
-
     {% for css in css_list %}
-        <link media="all" href="{{css}}" type="text/css" rel="stylesheet" />
+    <link media="all" href="{{css}}" type="text/css" rel="stylesheet" />
     {% endfor %}
-
     <link href="lib/modelmap/fav.ico" type="image/x-icon" rel="shortcut icon" />
-
     <title>{{title}}</title>
-
     <script src="lib/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
     <script src="lib/jquery/jquery-ui.min.js" type="text/javascript"></script>
     <script src="lib/onlinehtmltools/skinable_tabs.min.js" type="text/javascript"></script>
@@ -24,8 +20,9 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     {% for js in js_list %}
-        <script src="{{js}}" type="text/javascript"></script>
+    <script src="{{js}}" type="text/javascript"></script>
     {% endfor %}
+    <script type="text/javascript">L_PREFER_CANVAS = true;</script>
 </head>
 <body>
     <div class="container">
@@ -38,31 +35,27 @@
         <div id="tabs" class="tabs">
             <nav>
                 <ul>
-                    {% if tab2html %}
-                        {% set i = 0 %}
-                        {% for (tab, (html, class)) in tab2html.iteritems() %}
-                            <li>
-                                <a href="#tab-{{i}}" class="{% if class %}{{class}}{% else %}icon-stats-dots{% endif %}">
-                                    <span>{{tab}}</span>
-                                </a>
-                            </li>
-                            {% set i = i + 1 %}
-                        {% endfor %}
-                    {% endif %}
-                </ul>
-            </nav>
-            <div class="content">
                 {% if tab2html %}
                     {% set i = 0 %}
                     {% for (tab, (html, class)) in tab2html.iteritems() %}
-                        <section id="tab-{{i}}">
-                            <div class="just">
-                                {{html}}
-                            </div>
-                        </section>
-                        {% set i = i + 1 %}
+                    <li><a href="#tab-{{i}}" class="{% if class %}{{class}}{% else %}icon-stats-dots{% endif %}"><span>{{tab}}</span></a></li>
+                    {% set i = i + 1 %}
                     {% endfor %}
                 {% endif %}
+                </ul>
+            </nav>
+            <div class="content">
+            {% if tab2html %}
+                {% set i = 0 %}
+                {% for (tab, (html, class)) in tab2html.iteritems() %}
+                <section id="tab-{{i}}">
+                    <div class="just">
+                        {{html}}
+                    </div>
+                </section>
+                {% set i = i + 1 %}
+                {% endfor %}
+            {% endif %}
             </div><!-- /content -->
         </div><!-- /tabs -->
     </div>

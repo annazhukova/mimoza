@@ -39,8 +39,8 @@ def serialize(directory, m_dir_id, input_model, c_id2level2features, c_id2out_c_
             features = level2features[level] if level in level2features \
                 else geojson.FeatureCollection([], geometry=geojson.Polygon([[0, 0], [0, 0], [0, 0], [0, 0]]))
             json_name = "level_%s_%s_%d" % (map_id, c_id, level)
-            json_file = os.path.join(directory, '%s.json' % json_name)
-            json_url = '%s.json' % json_name
+            json_file = os.path.join(directory, '%s.js' % json_name)
+            json_url = '%s.js' % json_name
             with open(json_file, 'w+') as f:
                 f.write("var %s = %s" % (json_name, geojson.dumps(features, allow_nan=True).replace('"id": null', '')))
             c_id2geojson_files[c_id].append(json_url)

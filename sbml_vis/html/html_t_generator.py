@@ -27,6 +27,7 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
     model_name = model_name.decode('utf-8') if model_name else ''
     model_id = model_id.decode('utf-8') if model_id else ''
     map_id = map_id.decode('utf-8') if map_id else ''
+    layer2mask = '[%s]' % ", ".join(("['%s', %d]" % (l_id, m) for (l_id, m) in layer2mask.iteritems()))
     return template.render(non_empty=non_empty,
                            model_name=model_name,
                            model_id=model_id,
@@ -37,7 +38,7 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
                            comp_c_id2name=sorted(c_id2name.iteritems(), key=lambda (_, c_name): c_name)
                            if len(c_id2name) > 1 else None,
                            c_id2name=c_id2name, layer2mask=layer2mask,
-                           hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs, info=info)
+                           hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs, info=info, invisible_layers=[])
 
 
 def create_html(non_empty, model_name, model_id, c_id2name,
