@@ -43,7 +43,7 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
 
 def create_html(non_empty, model_name, model_id, c_id2name,
                 directory, json_files, c_id2json_vars, map_id, c_id2out_c_id, hidden_c_ids, c_id_hidden_ubs,
-                layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title='', info='', invisible_layers=None):
+                layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title='', h1='', info='', invisible_layers=None):
 
     if not invisible_layers:
         invisible_layers = []
@@ -53,6 +53,8 @@ def create_html(non_empty, model_name, model_id, c_id2name,
     map_id = map_id.decode('utf-8') if map_id else ''
     if not title:
         title = 'Visualization of <a href="http://www.ebi.ac.uk/biomodels-main/%s">%s</a>' % (model_id, model_name)
+    if not h1:
+        h1 = model_name
 
     vis_tab = get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2json_vars, map_id, c_id2out_c_id,
                           hidden_c_ids, c_id_hidden_ubs, layer2mask=DEFAULT_LAYER2MASK, info='')
@@ -63,7 +65,7 @@ def create_html(non_empty, model_name, model_id, c_id2name,
 
     page = template.render(css_list=[LEAFLET_LABEL_CSS, LEAFLET_CSS],
                            js_list=[LEAFLET_JS, LEAFLET_LABEL_JS, MIMOZA_JS, MIMOZA_POPUP_JS, MIMOZA_GEOJSON_JS],
-                           title=title, tab2html=tab2html)
+                           h1=h1, title=title, tab2html=tab2html)
     with io.open(os.path.join(directory, 'comp.html'), 'w+', encoding='utf-8') as f:
         f.write(page)
 

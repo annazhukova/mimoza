@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 import getopt
+import sys
 
 from sbml_vis.mimoza_pipeline import process_sbml
 
@@ -10,8 +11,6 @@ help_message = '''
 Generalizes and visualizes an SBML model.
 usage: main.py --model model.xml --verbose
 '''
-
-import sys
 
 
 class Usage(Exception):
