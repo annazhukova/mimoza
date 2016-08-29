@@ -15,4 +15,4 @@ if __name__ == "__main__":
     parser.add_argument('--verbose', action="store_true", help="print logging information")
     params = parser.parse_args()
 
-    process_sbml(params.model, params.verbose, ub_ch_ids=None, path=None, generalize=True, log_file=None)
+    process_sbml(params.model, params.verbose, ub_ch_ids=None, web_page_prefix=None, generalize=True, log_file=None)

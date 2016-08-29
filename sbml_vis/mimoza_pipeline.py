@@ -29,33 +29,60 @@ def get_lib():
     return os.path.join(os.path.dirname(os.path.abspath(sbml_vis.__file__)), '..', 'lib')
 
 
-def process_sbml(sbml, verbose, ub_ch_ids=None, path=None, generalize=True, log_file=None,
+def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize=True, log_file=None,
                  id2mask=None, layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title=None, h1=None,
                  id2color=None, tabs={ABOUT_TAB, DOWNLOAD_TAB}, info='', invisible_layers=None):
+    """
+    Generalizes and visualizes a given SBML model.
+    :param sbml: a path to the input SBML file
+    :param verbose: if logging information should be printed
+    :param ub_ch_ids: optional, ChEBI ids to be considered as ubiquitous. If left None, will be calculated automatically.
+    :param web_page_prefix: optional, how this model's webpage will be identified.
+    If left None an identifier will be generated based on the SBML file's md5.
+    :param generalize: optional, whether the generalization should be performed. The default is True
+    :param log_file: optional, a file where the logging information should be redirected
+    (only needed if verbose is set to True)
+    :param id2mask: optional,
+    :param layer2mask: optional, a dict storing the correspondence between a layer name and an its id mask
+    :param tab2html: optional,
+    :param title: optional, the title for the web page
+    :param h1: optional, the main header of the web page
+    :param id2color: optional,
+    :param tabs: optional, a set of names of tabs that should be shown
+    :param info: optional, additional information to be displayed in the bottom of the web page
+    :param invisible_layers: optional, the layers of the visualized metabolic map that should be hidden
+    :return: void
+    """
+    # Read the SBML
     reader = libsbml.SBMLReader()
     doc = reader.readSBML(sbml)
     model = doc.getModel()
     if not model:
-        print sbml
-        raise Exception("The model should be in SBML format")
+        raise Exception("The model should be in SBML format, check your file %s" % sbml)
     model_id = model.getId()
     if not model_id:
         sbml_name = os.path.splitext(os.path.basename(sbml))[0]
         model.setId(sbml_name)
         model_id = sbml_name
-    m_id = path if path else check_md5(sbml)
+
+    # Prepare the output directories
+    web_page_prefix = web_page_prefix if web_page_prefix else check_md5(sbml)
     sbml_dir = dirname(abspath(sbml))
-    directory = os.path.join(sbml_dir, m_id)
+    directory = os.path.join(sbml_dir, web_page_prefix)
     if not os.path.exists(directory):
         os.makedirs(directory)
     lib_path = os.path.join(directory, 'lib')
     if not os.path.exists(lib_path):
         copytree(get_lib(), lib_path)
+
+    # Prepare the logger
     if verbose:
         logging.captureWarnings(True)
         logging.basicConfig(level=logging.INFO, format='%(asctime)s: %(message)s',
                             datefmt="%Y-%m-%d %H:%M:%S", filename=log_file)
         logging.captureWarnings(True)
+
+    # Generalize the model if needed
     groups_sbml = os.path.join(directory, '%s_with_groups.xml' % model_id)
     gen_sbml = os.path.join(directory, '%s_generalized.xml' % model_id)
     if check_for_groups(sbml, SBO_CHEMICAL_MACROMOLECULE, GROUP_TYPE_UBIQUITOUS):
@@ -72,6 +99,7 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, path=None, generalize=True, log_
             logging.info('Ubiquitizing the model...')
             ubiquitize_model(groups_sbml, sbml, chebi, ub_chebi_ids=ub_ch_ids)
 
+    # Visualize the model
     reader = libsbml.SBMLReader()
     input_document = reader.readSBML(groups_sbml)
     input_model = input_document.getModel()
@@ -122,7 +150,8 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, path=None, generalize=True, log_
         if gen_model:
             save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
 
-    serialize(directory=directory, m_dir_id=m_id, input_model=input_model, c_id2level2features=fc,
+    # Serialize the result
+    serialize(directory=directory, m_dir_id=web_page_prefix, input_model=input_model, c_id2level2features=fc,
               c_id2out_c_id=c_id2out_c_id, hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs, tabs=tabs,
               groups_sbml=groups_sbml, layer2mask=layer2mask, tab2html=tab2html, title=title, h1=h1, info=info,
               invisible_layers=invisible_layers)
