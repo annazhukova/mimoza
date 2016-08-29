@@ -43,7 +43,7 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
 
 def create_html(non_empty, model_name, model_id, c_id2name,
                 directory, json_files, c_id2json_vars, map_id, c_id2out_c_id, hidden_c_ids, c_id_hidden_ubs,
-                layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title='', h1='', info='', invisible_layers=None):
+                layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title='', h1='', invisible_layers=None):
 
     if not invisible_layers:
         invisible_layers = []

@@ -77,8 +77,7 @@ try:
     if not os.path.exists(groups_sbml):
         chebi = parse_simple(get_chebi())
         gen_sbml = os.path.join(sbml_directory, '%s_generalized.xml' % m_id)
-        r_id2g_id, s_id2gr_id, species_id2chebi_id, ub_sps = generalize_model(groups_sbml, gen_sbml, sbml, chebi
-                                                                              )
+        r_id2g_id, s_id2gr_id, species_id2chebi_id, ub_sps = generalize_model(groups_sbml, gen_sbml, sbml, chebi)
     create_thanks_for_uploading_html(m_id, input_model.getName(), '../html', m_dir_id,
                                      MIMOZA_URL, 'comp.html', generate_generalization_finished_html)
 

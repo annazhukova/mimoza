@@ -31,7 +31,7 @@ def get_lib():
 
 def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize=True, log_file=None,
                  id2mask=None, layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title=None, h1=None,
-                 id2color=None, tabs={ABOUT_TAB, DOWNLOAD_TAB}, info='', invisible_layers=None):
+                 id2color=None, tabs={ABOUT_TAB, DOWNLOAD_TAB}, invisible_layers=None):
     """
     Generalizes and visualizes a given SBML model.
     :param sbml: a path to the input SBML file
@@ -49,7 +49,6 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
     :param h1: optional, the main header of the web page
     :param id2color: optional,
     :param tabs: optional, a set of names of tabs that should be shown
-    :param info: optional, additional information to be displayed in the bottom of the web page
     :param invisible_layers: optional, the layers of the visualized metabolic map that should be hidden
     :return: void
     """
@@ -104,13 +103,14 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
     input_document = reader.readSBML(groups_sbml)
     input_model = input_document.getModel()
 
-    root, c_id2info, c_id2outs, chebi, ub_sps = import_sbml(input_model, groups_sbml)
+    root, c_id2info, c_id2outs, chebi, ub_sps, c_id2gr_id = import_sbml(input_model, groups_sbml)
 
-    c_id2out_c_id = {}
-    for c_id, c_info in c_id2info.iteritems():
-        _, _, (_, out_c_id) = c_info
-        if out_c_id:
-            c_id2out_c_id[c_id] = out_c_id
+    # c_id2out_c_id = {}
+    # for c_id, c_info in c_id2info.iteritems():
+    #     _, _, (_, out_c_id) = c_info
+    #     if out_c_id:
+    #         c_id2out_c_id[c_id] = out_c_id
+
     try:
         n2xy = parse_layout_sbml(sbml)
         if n2xy:
@@ -132,8 +132,14 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
     except LoPlError:
         n2xy = None
     fc, (n2lo, e2lo), hidden_c_ids, c_id_hidden_ubs = \
-        graph2geojson(c_id2info, c_id2outs, root, n2xy, id2mask=id2mask, onto=chebi,
+        graph2geojson(c_id2info, c_id2outs, c_id2gr_id, root, n2xy, id2mask=id2mask, onto=chebi,
                       colorer=color if not id2color else lambda graph: color_by_id(graph, id2color))
+
+    c_id2out_c_id = {}
+    for c_id in c_id2gr_id.itervalues():
+        if c_id in fc and 'cell' != c_id and 'cell' in fc:
+            c_id2out_c_id[c_id] = 'cell'
+
     if n2lo:
         groups_document = reader.readSBML(groups_sbml)
         groups_model = groups_document.getModel()
@@ -153,6 +159,6 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
     # Serialize the result
     serialize(directory=directory, m_dir_id=web_page_prefix, input_model=input_model, c_id2level2features=fc,
               c_id2out_c_id=c_id2out_c_id, hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs, tabs=tabs,
-              groups_sbml=groups_sbml, layer2mask=layer2mask, tab2html=tab2html, title=title, h1=h1, info=info,
+              groups_sbml=groups_sbml, layer2mask=layer2mask, tab2html=tab2html, title=title, h1=h1,
               invisible_layers=invisible_layers)
 

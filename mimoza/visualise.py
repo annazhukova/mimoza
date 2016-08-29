@@ -85,21 +85,28 @@ try:
 
         # sbml -> tulip graph
         logging.info('sbml -> tlp')
-        graph, c_id2info, c_id2outs, chebi, ub_sps = import_sbml(input_model, groups_sbml)
+        graph, c_id2info, c_id2outs, chebi, ub_sps, c_id2gr_id = import_sbml(input_model, groups_sbml)
 
         try:
             n2xy = parse_layout_sbml(groups_sbml)
         except LoPlError:
             n2xy = None
 
-        fc, (n2lo, e2lo), hidden_c_ids, c_id_hidden_ubs = graph2geojson(c_id2info, c_id2outs, graph, n2xy, onto=chebi)
+        fc, (n2lo, e2lo), hidden_c_ids, c_id_hidden_ubs = \
+            graph2geojson(c_id2info, c_id2outs, c_id2gr_id, graph, n2xy, onto=chebi)
+
         c_id2out_c_id = {}
-        for c_id, info in c_id2info.iteritems():
-            if c_id not in fc:
-                continue
-            _, _, (_, out_c_id) = info
-            if out_c_id and out_c_id in fc:
-                c_id2out_c_id[c_id] = out_c_id
+        for c_id in c_id2gr_id.itervalues():
+            if c_id in fc and 'cell' != c_id and 'cell' in fc:
+                c_id2out_c_id[c_id] = 'cell'
+
+        # c_id2out_c_id = {}
+        # for c_id, info in c_id2info.iteritems():
+        #     if c_id not in fc:
+        #         continue
+        #     _, _, (_, out_c_id) = info
+        #     if out_c_id and out_c_id in fc:
+        #         c_id2out_c_id[c_id] = out_c_id
 
         if not n2xy or gen_sbml:
             groups_document = reader.readSBML(groups_sbml)

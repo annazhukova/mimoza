@@ -74,6 +74,7 @@ def factor_nodes(graph, ns=None):
             sample_e = next(iter(root[VIEW_META_GRAPH][meta_e]))
             root[UBIQUITOUS][meta_e] = root[UBIQUITOUS][sample_e]
             root[STOICHIOMETRY][meta_e] = root[STOICHIOMETRY][sample_e]
+            root[COMPARTMENT_ID][meta_e] = root[COMPARTMENT_ID][sample_e]
             # todo: this is not True but will help with cycle detection
             root[REVERSIBLE][meta_e] = not root[UBIQUITOUS][meta_e]
 
@@ -105,6 +106,7 @@ def comp_to_meta_node(meta_graph, c_id, (go_id, c_name), out_comp, do_layout=Tru
                         next(iter(root[VIEW_META_GRAPH][meta_e])))
         root[UBIQUITOUS][meta_e] = root[UBIQUITOUS][sample_e]
         root[STOICHIOMETRY][meta_e] = sum(root[STOICHIOMETRY][ee] for ee in root[VIEW_META_GRAPH][meta_e])
+        root[COMPARTMENT_ID][meta_e] = root[COMPARTMENT_ID][sample_e]
         # todo: this is not True but will help with cycle detection
         root[REVERSIBLE][meta_e] = root[REVERSIBLE][sample_e] and not root[UBIQUITOUS][sample_e]
     return comp_n

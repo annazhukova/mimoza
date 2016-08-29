@@ -4,7 +4,7 @@ from tulip import tlp
 from mod_sbml.annotation.gene_ontology.go_annotator import annotate_compartments, get_go_id
 from sbml_generalization.sbml.sbml_helper import parse_group_sbml, GrPlError
 from sbml_vis.converter.sbml_manager import check_names, check_compartments
-from mod_sbml.sbml.compartment.compartment_positioner import comp2level
+from mod_sbml.sbml.compartment.compartment_positioner import comp2level, extract_organelle_t_ids
 from mod_sbml.onto import parse_simple
 from mod_sbml.onto.term import Term
 from mod_sbml.annotation.chebi.chebi_serializer import get_chebi
@@ -110,6 +110,8 @@ def reactions2nodes(get_r_comp, graph, id2n, input_model):
 
         graph[TRANSPORT][n] = len(all_comps) > 1
         graph[COMPARTMENT_ID][n] = get_r_comp(all_comps)
+        for e in graph.getInOutEdges(n):
+            graph[COMPARTMENT_ID][e] = graph[COMPARTMENT_ID][n]
 
 
 def get_quotient_maps(chebi, sbml_file):
@@ -158,6 +160,21 @@ def import_sbml(input_model, sbml_file):
     go = parse_simple(get_go())
     annotate_compartments(input_model, go)
     c_id2level = comp2level(input_model, go)
+    t_id2c_id = {t_id: c_id for (t_id, c_id) in ((get_go_id(c), c.getId())
+                                                 for c in input_model.getListOfCompartments()) if t_id}
+
+    c_id2group_id = {}
+    for (org_id, part_ids) in extract_organelle_t_ids(set(t_id2c_id.iterkeys()), go).iteritems():
+        gr_id = go.get_term(org_id, check_only_ids=True).get_name()
+        if not gr_id:
+            gr_id = org_id
+        gr_id = gr_id.replace(' ', '_')
+        if org_id in t_id2c_id:
+            c_id2group_id[t_id2c_id[org_id]] = gr_id
+        c_id2group_id.update({t_id2c_id[t_id]: gr_id for t_id in part_ids})
+
+    c_id2group_id.update({c_id: 'cell' for c_id in c_id2level.iterkeys() if c_id not in c_id2group_id})
+
     c_id2info, c_id2outs = compute_c_id2info(c_id2level, input_model)
 
     def get_r_comp(all_comp_ids):
@@ -197,7 +214,7 @@ def import_sbml(input_model, sbml_file):
 
     logging.info('marking species/reaction groups')
     mark_ancestors(graph, r_id2g_id, s_id2gr_id, c_id2info)
-    return graph, c_id2info, c_id2outs, chebi, ub_sps
+    return graph, c_id2info, c_id2outs, chebi, ub_sps, c_id2group_id
 
 
 def create_props(graph):
