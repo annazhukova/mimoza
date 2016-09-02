@@ -1,0 +1,2018 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns:ns6="http://www.w3.org/1998/Math/MathML" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:ns5="http://biomodels.net/biology-qualifiers/" xmlns:ns4="http://www.w3.org/2001/vcard-rdf/3.0#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:groups="http://www.sbml.org/sbml/level3/version1/groups/version1" level="3" version="1">
+  <model id="MODEL1111190000_peroxisome" name="Peroxisome of MODEL1111190000" substanceUnits="substance" timeUnits="second" volumeUnits="volume" areaUnits="area" lengthUnits="metre" extentUnits="substance">
+    <listOfUnitDefinitions>
+      <unitDefinition id="flux_unit">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="volume">
+        <listOfUnits>
+          <unit kind="litre" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="substance">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+      <unitDefinition id="area">
+        <listOfUnits>
+          <unit kind="metre" exponent="2" scale="0" multiplier="1"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment metaid="metaid_c_02" sboTerm="SBO:0000290" id="c_02" name="cytoplasm" spatialDimensions="3" size="1" units="volume" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_c_02">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.go:GO%3A0005737"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+      <compartment metaid="metaid_c_14" sboTerm="SBO:0000290" id="c_14" name="peroxisome" spatialDimensions="3" size="1" units="volume" constant="true">
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_c_14">
+              <bqbiol:is>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.go:GO%3A0005777"/>
+                </rdf:Bag>
+              </bqbiol:is>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+      </compartment>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="s_0024" name="(R)-carnitine [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0027" name="(R)-carnitine [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0045" name="(S)-3-hydroxydecanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0048" name="(S)-3-hydroxyhexacosanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0051" name="(S)-3-hydroxylauroyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0054" name="(S)-3-hydroxypalmitoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0057" name="(S)-3-hydroxytetradecanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0069" name="(S)-malate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0072" name="(S)-malate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0185" name="2-oxoglutarate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0189" name="2-oxoglutarate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0209" name="3-(4-hydroxyphenyl)pyruvate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0211" name="3-(4-hydroxyphenyl)pyruvate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0236" name="3-hydroxyoctadecanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0245" name="3-oxodecanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0249" name="3-oxohexacosanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0253" name="3-oxolauroyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0256" name="3-oxooctadecanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0259" name="3-oxopalmitoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0263" name="3-oxotetradecanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0288" name="4-hydroxy-2-oxoglutarate(2-) [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0290" name="4-hydroxy-2-oxoglutarate(2-) [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0385" name="acetyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0400" name="ADP [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0405" name="ADP [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0434" name="AMP [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0437" name="AMP [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0446" name="ATP [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0451" name="ATP [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0462" name="bicarbonate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0470" name="carbon dioxide [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0476" name="carbon dioxide [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0491" name="cerotate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0492" name="cerotate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0507" name="citrate(3-) [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0510" name="citrate(3-) [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0519" name="coenzyme A [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0575" name="decanoate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0580" name="decanoate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0585" name="decanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0605" name="pyrophosphate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0610" name="pyrophosphate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0647" name="erythro-4-hydroxy-L-glutamic acid [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0649" name="erythro-4-hydroxy-L-glutamic acid [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0749" name="glyoxylate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0751" name="glyoxylate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0778" name="hexacosanoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0781" name="hexacosanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0782" name="hexadec-2-enoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0785" name="hexadec-2-enoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0804" name="hydrogen peroxide [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0847" name="isocitrate(3-) [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0849" name="isocitrate(3-) [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0881" name="L-aspartate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0884" name="L-aspartate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0899" name="L-glutamate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0903" name="L-glutamate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0917" name="L-homocysteine [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0918" name="L-homocysteine [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0955" name="L-tyrosine [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0958" name="L-tyrosine [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0969" name="laurate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0974" name="laurate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0980" name="lauroyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0988" name="lignoceric acid [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0993" name="lignoceric acid [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1029" name="myristate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1034" name="myristate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1036" name="myristoleate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1041" name="myristoleate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1044" name="myristoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1047" name="myristoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1086" name="NAD [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1090" name="NADH [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1095" name="NADP(+) [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1099" name="NADPH [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1108" name="NMN [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1112" name="NMN [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1119" name="O-acetylcarnitine [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1121" name="O-acetylcarnitine [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1129" name="octadec-9-ynoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1130" name="octadec-9-ynoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1133" name="octanoate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1138" name="octanoate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1143" name="octanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1147" name="oleoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1150" name="oleoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1156" name="oxaloacetate(2-) [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1159" name="oxaloacetate(2-) [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1160" name="oxygen [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1164" name="oxygen [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1171" name="palmitate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1176" name="palmitate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1178" name="palmitoleate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1183" name="palmitoleate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1187" name="palmitoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1190" name="palmitoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1207" name="phosphate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1213" name="phosphate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1277" name="pyruvate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1280" name="pyruvate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1329" name="stearate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1331" name="stearate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1334" name="stearoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1337" name="stearoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1355" name="tetracosanoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1358" name="tetracosanoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1360" name="tetradecenoyl-CoA [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1361" name="tetradecenoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1385" name="trans-dec-2-enoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1388" name="trans-dodec-2-enoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1391" name="trans-hexacos-2-enoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1394" name="trans-octadec-2-enoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1397" name="trans-tetradec-2-enoyl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1517" name="YLR043C disulphide [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1520" name="YLR043C disulphide [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1521" name="TRX1 [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_1524" name="TRX1 [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_0764_b" name="H+ [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="s_0771_b" name="H+ [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="s_1434_b" name="H2O [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="s_1441_b" name="H2O [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="true" constant="false"/>
+      <species id="s_5012" name="butyrate [cytoplasm]" compartment="c_02" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_5013" name="butyrate [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+      <species id="s_5014" name="butyryl-CoA [peroxisome]" compartment="c_14" substanceUnits="substance" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter id="dummy_flux" value="0" units="flux_unit" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction sboTerm="SBO:0000176" id="r_0049" name="3-hydroxyacyl-CoA dehydratase (3-hydroxydecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0045" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0050" name="3-hydroxyacyl-CoA dehydratase (3-hydroxydodecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0051" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1388" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0051" name="3-hydroxyacyl-CoA dehydratase (3-hydroxyhexacosyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1391" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0048" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0052" name="3-hydroxyacyl-CoA dehydratase (3-hydroxyhexadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0054" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0785" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0053" name="3-hydroxyacyl-CoA dehydratase (3-hydroxyoctadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0236" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1394" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0054" name="3-hydroxyacyl-CoA dehydratase (3-hydroxytetradecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0057" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1397" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0055" name="3-hydroxyacyl-CoA dehydrogenase (3-oxodecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0245" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0045" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0056" name="3-hydroxyacyl-CoA dehydrogenase (3-oxodecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0253" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0051" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0057" name="3-hydroxyacyl-CoA dehydrogenase (3-oxohexacosyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0048" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0249" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0058" name="3-hydroxyacyl-CoA dehydrogenase (3-oxohexadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0259" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0054" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0059" name="3-hydroxyacyl-CoA dehydrogenase (3-oxooctadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0256" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0236" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0060" name="3-hydroxyacyl-CoA dehydrogenase (3-oxotetradecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E15378g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0263" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0057" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0115" name="acetyl-CoA acyltransferase (hexadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E18568g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0256" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1190" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0116" name="acetyl-CoA acyltransferase (tetracosanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E18568g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0249" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1358" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0117" name="acetyl-CoA acyltransferase (tetradecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E18568g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0259" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1047" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0120" name="acetyl-CoA C-acetyltransferase (dodecanoyl)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E18568g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0263" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0980" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0121" name="acetyl-CoA C-acetyltransferase (octanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E18568g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0245" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1143" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0122" name="acetyl-CoA C-acyltransferase (decanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E18568g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0253" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0585" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0135" name="acyl-CoA oxidase (decanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g)</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0585" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1385" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0136" name="acyl-CoA oxidase (dodecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g)</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0980" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1388" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0137" name="acyl-CoA oxidase (hexacanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g)</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0781" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1391" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0138" name="acyl-CoA oxidase (hexadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g)</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1190" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0785" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0139" name="acyl-CoA oxidase (octadecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g)</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1337" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1394" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0140" name="acyl-CoA oxidase (tetradecanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g)</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1047" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1397" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0406" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="5" constant="true"/>
+          <speciesReference species="s_1361" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="6" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="5" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="6" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0407" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g and YALI0C03003g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0785" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1099" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="7" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1095" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0408" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0785" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="7" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="7" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0409" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g and YALI0C03003g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1099" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1150" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="8" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="9" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1095" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0410" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1150" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="8" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="9" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="8" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0411" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g and YALI0C03003g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1099" stoichiometry="2" constant="true"/>
+          <speciesReference species="s_1130" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="8" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="9" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1095" stoichiometry="2" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0412" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g and YALI0C03003g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1099" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1130" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="8" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="9" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1095" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0413" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_1130" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="8" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="9" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="8" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="8" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0414" name="fatty acid oxidation" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0C23859g or YALI0D24750g or YALI0E06567g or YALI0E27654g or YALI0E32835g or YALI0F10857g) and YALI0E18568g and YALI0E15378g and YALI0F22121g and YALI0C03003g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1099" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1361" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="6" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="7" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="5" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="6" constant="true"/>
+          <speciesReference species="s_1095" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0415" name="fatty acid oxidation (octanoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E15378g and YALI0E18568g and (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g))</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1143" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="3" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="4" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="3" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0416" name="fatty acid oxidation (tetradecansoyl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E15378g and YALI0E18568g and (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g))</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1358" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="3" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="3" constant="true"/>
+          <speciesReference species="s_1337" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0431" name="fatty-acid--CoA ligase (decanoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0580" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0585" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0432" name="fatty-acid--CoA ligase (dodecanoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0974" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0980" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0434" name="fatty-acid--CoA ligase (hexadecanoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1176" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1190" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0436" name="fatty-acid--CoA ligase (hexadecenoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1183" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0785" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0437" name="fatty-acid--CoA ligase (n-C24:0)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E16016g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0993" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1358" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0438" name="fatty-acid--CoA ligase (n-C26:0)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E16016g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0492" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0781" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0442" name="fatty-acid--CoA ligase (octanoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1138" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1143" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0444" name="fatty-acid--CoA ligase (tetradecanoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1034" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1047" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0446" name="fatty-acid--CoA ligase (tetradecenoate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1041" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1361" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0818" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0585" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0580" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0819" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0980" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0974" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0820" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1358" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0993" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0821" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1190" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1176" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0822" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1047" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1034" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0823" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1337" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1331" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000176" id="r_0824" name="peroxisomal acyl-CoA thioesterase" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0F14729g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1143" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1138" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1253" sboTerm="SBO:0000185" id="r_1253" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1253">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_0778" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0781" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1254" sboTerm="SBO:0000185" id="r_1254" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1254">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_1355" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1358" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1255" sboTerm="SBO:0000185" id="r_1255" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1255">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_0575" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0580" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1256" sboTerm="SBO:0000185" id="r_1256" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1256">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_0969" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0974" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1257" sboTerm="SBO:0000185" id="r_1257" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1257">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_1029" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1034" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1258" sboTerm="SBO:0000185" id="r_1258" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1258">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_1036" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1041" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1259" sboTerm="SBO:0000185" id="r_1259" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1259">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_1171" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1176" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1260" sboTerm="SBO:0000185" id="r_1260" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1260">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_1178" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1183" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000185" id="r_1261" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E16016g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0988" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0993" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000185" id="r_1262" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0E16016g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0491" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0492" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction metaid="metaid_r_1263" sboTerm="SBO:0000185" id="r_1263" name="fatty acid transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION:</html:p>
+          </html:body>
+        </notes>
+        <annotation>
+          <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:bqmodel="http://biomodels.net/model-qualifiers/" xmlns:bqbiol="http://biomodels.net/biology-qualifiers/">
+            <rdf:Description rdf:about="#metaid_r_1263">
+              <bqbiol:isDescribedBy>
+                <rdf:Bag>
+                  <rdf:li rdf:resource="urn:miriam:obo.eco:ECO%3A0000034"/>
+                  <rdf:li rdf:resource="urn:miriam:pubmed:18846089"/>
+                </rdf:Bag>
+              </bqbiol:isDescribedBy>
+            </rdf:Description>
+          </rdf:RDF>
+        </annotation>
+        <listOfReactants>
+          <speciesReference species="s_1133" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1138" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="0" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction sboTerm="SBO:0000185" id="r_1437" name="octadecanoate (n-C18:0) transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0A06655g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_1329" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_1331" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r_2014" name="butyrate perox. transport" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0C04092g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_5012" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_5013" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r_2015" name="fatty-acid--CoA ligase (butyrate)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: YALI0D17864g</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_5013" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0451" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_5014" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0437" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0610" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+      <reaction id="r_2016" name="fatty acid oxidation (butyryl-CoA)" reversible="true" fast="false">
+        <notes>
+          <html:body>
+            <html:p>GENE_ASSOCIATION: (YALI0E15378g and YALI0E18568g and (YALI0E32835g or YALI0E06567g or YALI0D24750g or YALI0C23859g or YALI0E27654g or YALI0F10857g))</html:p>
+          </html:body>
+        </notes>
+        <listOfReactants>
+          <speciesReference species="s_0519" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1086" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_5014" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1164" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1441_b" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="s_0385" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0771_b" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_0804" stoichiometry="1" constant="true"/>
+          <speciesReference species="s_1090" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+        <kineticLaw>
+          <math xmlns="http://www.w3.org/1998/Math/MathML">
+            <ci> dummy_flux </ci>
+          </math>
+          <listOfLocalParameters>
+            <localParameter id="LOWER_BOUND" value="-INF" units="flux_unit"/>
+            <localParameter id="UPPER_BOUND" value="INF" units="flux_unit"/>
+            <localParameter id="OBJECTIVE_COEFFICIENT" value="0" units="dimensionless"/>
+          </listOfLocalParameters>
+        </kineticLaw>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>
