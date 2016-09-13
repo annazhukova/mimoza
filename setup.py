@@ -1,7 +1,8 @@
-__author__ = 'anna'
-
+import os
 from setuptools import setup, find_packages
 from sys import version
+
+__author__ = 'anna'
 
 if version < '2.2.3':
     from distutils.dist import DistributionMetadata
@@ -18,7 +19,7 @@ setup(name='mimoza',
       url='http://mimoza.bordeaux.inria.fr/',
       version='1.0',
       packages=find_packages(),
-      package_data={'sbml_vis.html': ['templates/*.html']},
+      package_data={'sbml_vis.html': [os.path.join('templates', '*.html')]},
       include_package_data=True,
       platform=['MacOS', 'Linux', 'Windows'],
       classifiers=[
