@@ -5,6 +5,7 @@ from shutil import copytree
 
 import libsbml
 import sbml_vis
+from sbml_vis.converter.cytoscape_manager import save_as_cytoscape_json
 
 from sbml_vis.graph.color.color import color_by_id
 from sbml_vis.graph.color.color import color
@@ -147,8 +148,13 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
         gen_sbgn = os.path.join(directory, '%s_generalized.sbgn' % model_id)
         save_as_sbgn(n2lo, e2lo, groups_model, groups_sbgn)
         logging.info('   exported as SBGN %s' % groups_sbgn)
+        out_json = os.path.join(directory, '%s.cyjs' % model_id)
+        save_as_cytoscape_json(n2lo, model, out_json, ub_sps)
+        logging.info('   exported as Cytoscape json %s' % out_json)
         if gen_model:
             save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
+            out_json = os.path.join(directory, '%s_generalized.cyjs' % model_id)
+            save_as_cytoscape_json(n2lo, gen_model, out_json, ub_sps)
 
     # Serialize the result
     serialize(directory=directory, m_dir_id=web_page_prefix, input_model=input_model, c_id2level2features=fc,
