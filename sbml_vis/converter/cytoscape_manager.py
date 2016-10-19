@@ -1,6 +1,8 @@
 import json
 from itertools import chain
 
+from mod_sbml.annotation.chebi.chebi_annotator import get_chebi_id
+from mod_sbml.sbml.sbml_manager import get_gene_association
 from sbml_vis.graph.transformation_manager import get_layout_characteristics, MARGIN, scale, shift, transform
 from mod_sbml.sbml.sbml_manager import get_reactants, get_products
 
@@ -110,7 +112,8 @@ def save_as_cytoscape_json(n2lo, model, out_json, ub_sp_ids):
                         get_node(x=x + w / 2, y=y + h / 2, z=1,
                                  **{GLYPH_TYPE: glyph_type, ID: "%s_%s" % (s_id, '_'.join(r_ids)) if r_ids else s_id,
                                     COMPARTMENT: species.getCompartment(), NAME: s_name, WEIGHT: w, HEIGHT: h,
-                                    TYPE: TYPE_SPECIES, UBIQUITOUS: s_id in ub_sp_ids}))
+                                    TYPE: TYPE_SPECIES, UBIQUITOUS: s_id in ub_sp_ids,
+                                    'ChEBI': get_chebi_id(species)}))
 
     def get_sref_id(s_id):
         if isinstance(n2lo[s_id], dict):
@@ -122,18 +125,20 @@ def save_as_cytoscape_json(n2lo, model, out_json, ub_sp_ids):
     for reaction in model.getListOfReactions():
         r_id = reaction.getId()
         r_name = get_name(reaction)
+        ga = get_gene_association(reaction)
         if r_id in n2lo:
             (x, y), (w, h) = transform(n2lo[r_id], x_shift, y_shift, scale_factor)
             nodes.append(get_node(x=x + w / 2, y=y + h / 2, z=1,
-                                  **{ID: r_id, NAME: r_name, WEIGHT: w, HEIGHT: h, TYPE: TYPE_REACTION,
+                                  **{ID: r_id, NAME: ga, WEIGHT: w, HEIGHT: h, TYPE: TYPE_REACTION,
                                      REVERSIBLE: reaction.getReversible(),
                                      UBIQUITOUS:
                                          next((False for s_id in chain(get_reactants(reaction), get_products(reaction))
-                                               if s_id not in ub_sp_ids), True)}))
+                                               if s_id not in ub_sp_ids), True),
+                                     'genes': ga, 'r_name': r_name}))
 
             for s_id in get_reactants(reaction):
-                edges.append(get_edge(**{ID: "%s_%s" % (s_id, r_id), SOURCE: get_sref_id(s_id), TARGET: r_id,
-                                         NAME: '%s is a reactant of %s' % (get_name(model.getSpecies(s_id)), r_name),
+                edges.append(get_edge(**{ID: "%s_%s" % (r_id, s_id), SOURCE: r_id, TARGET: get_sref_id(s_id),
+                                         NAME: '%s is a substrate of %s' % (get_name(model.getSpecies(s_id)), r_name),
                                          UBIQUITOUS: s_id in ub_sp_ids, INTERACTION: SUBSTRATE}))
 
             for s_id in get_products(reaction):
