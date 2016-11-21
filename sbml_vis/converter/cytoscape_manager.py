@@ -138,13 +138,13 @@ def save_as_cytoscape_json(n2lo, model, out_json, ub_sp_ids):
 
             for s_id in get_reactants(reaction):
                 edges.append(get_edge(**{ID: "%s_%s" % (r_id, s_id), SOURCE: r_id, TARGET: get_sref_id(s_id),
-                                         NAME: '%s is a substrate of %s' % (get_name(model.getSpecies(s_id)), r_name),
-                                         UBIQUITOUS: s_id in ub_sp_ids, INTERACTION: SUBSTRATE}))
+                                             NAME: '%s is a substrate of %s' % (get_name(model.getSpecies(s_id)), r_name),
+                                             UBIQUITOUS: s_id in ub_sp_ids, INTERACTION: SUBSTRATE}))
 
             for s_id in get_products(reaction):
                 edges.append(get_edge(**{ID: "%s_%s" % (r_id, s_id), SOURCE: r_id, TARGET: get_sref_id(s_id),
-                                         NAME: '%s is a product of %s' % (get_name(model.getSpecies(s_id)), r_name),
-                                         UBIQUITOUS: s_id in ub_sp_ids, INTERACTION: PRODUCT}))
+                                             NAME: '%s is a product of %s' % (get_name(model.getSpecies(s_id)), r_name),
+                                             UBIQUITOUS: s_id in ub_sp_ids, INTERACTION: PRODUCT}))
 
     save_cyjson(nodes, edges, out_json)
 
