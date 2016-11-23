@@ -11,7 +11,8 @@ def get_short_name(graph, n, onto):
     min_len = len(short_name)
 
     formula = graph[FORMULA][n]
-    if formula and (len(formula) < min_len or formula.lower() == short_name.lower()):
+    if formula and formula[0].isalpha()\
+            and (len(formula) < min_len or formula.lower() == short_name.lower()):
         min_len = len(formula)
         short_name = convert_formula_to_html(formula)
 
@@ -25,15 +26,16 @@ def get_short_name(graph, n, onto):
                 formulas = term.get_formulas()
                 if formulas:
                     formula = next(iter(formulas))
-                    if formula and (len(formula) < min_len or formula.lower() == short_name.lower()):
+                    if formula and formula[0].isalpha() \
+                            and (len(formula) < min_len or formula.lower() == short_name.lower()):
                         min_len = len(formula)
                         short_name = convert_formula_to_html(formula)
             t_name = term.get_name()
-            if t_name and len(t_name) < min_len:
+            if t_name and len(t_name) < min_len and t_name[0].isalpha():
                 min_len = len(t_name)
                 short_name = t_name
             for alt in term.get_synonyms():
-                if alt and len(alt) < min_len:
+                if alt and len(alt) < min_len and alt[0].isalpha():
                     min_len = len(alt)
                     short_name = alt
 

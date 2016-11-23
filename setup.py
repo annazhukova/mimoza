@@ -33,5 +33,5 @@ setup(name='mimoza',
       ],
       download_url='http://mimoza.bordeaux.inria.fr/',
       requires=['sympy', 'geojson', 'jinja2', 'mod_sbml', 'tarjan', 'sbml_generalization',
-                'libsbgnpy', 'tulip-python', 'python-libsbml-experimental', 'pandas']
+                'libsbgnpy', 'tulip-python', 'python-libsbml-experimental', 'pandas', 'urllib3']
       )

@@ -132,7 +132,7 @@ def compute_c_id2info(c_id2level, input_model):
         c_id2info[c_id] = (c_name, go_id if go_id else '', c_id2level[c_id])
 
     c_id2outs = {}
-    for c_id in c_id2info.iterkeys():
+    for c_id in c_id2info.keys():
         _, _, (_, out_c_id) = c_id2info[c_id]
         outs = []
         while out_c_id:

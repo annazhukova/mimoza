@@ -43,7 +43,7 @@ directory = '../html/%s/' % m_dir_id
 log_file = '%s/log.log' % directory
 logging.basicConfig(level=logging.INFO, format='%(message)s', filename=log_file)
 
-print '''Content-Type: text/html;charset=utf-8
+print('''Content-Type: text/html;charset=utf-8
 
 
         <html lang="en">
@@ -69,7 +69,7 @@ print '''Content-Type: text/html;charset=utf-8
           <p class="centre">We are visualizing your model now...</p>
           <br/>
           <img class="img-centre" src="http://mimoza.bordeaux.inria.fr/lib/modelmap/ajax-loader.gif" id="img" />
-          <div id="hidden" style="visibility:hidden;height:0px;">'''
+          <div id="hidden" style="visibility:hidden;height:0px;">''')
 
 sys.stdout.flush()
 
@@ -94,7 +94,7 @@ try:
 
         fc, (n2lo, e2lo), hidden_c_ids, c_id_hidden_ubs = graph2geojson(c_id2info, c_id2outs, graph, n2xy, onto=chebi)
         c_id2out_c_id = {}
-        for c_id, info in c_id2info.iteritems():
+        for c_id, info in c_id2info.items():
             if c_id not in fc:
                 continue
             _, _, (_, out_c_id) = info
@@ -121,21 +121,21 @@ try:
                     save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
                     logging.info('   exported as SBGN %s' % gen_sbgn)
             except Exception as e:
-                logging.info(e.message)
+                logging.info(e)
 
         serialize(directory, m_dir_id, input_model, fc, c_id2out_c_id, hidden_c_ids, c_id_hidden_ubs,
                   groups_sbml)
 
 except Exception as e:
-    logging.info(e.message)
+    logging.info(e)
     url = MIMOZA_ERROR_URL
 
 sys.stdout.flush()
 
-print '''</div>
+print('''</div>
           </body>
           <script type="text/javascript">
                 window.location = "%s"
           </script>
-        </html>''' % url
+        </html>''' % url)
 sys.stdout.flush()

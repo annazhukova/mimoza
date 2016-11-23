@@ -75,7 +75,7 @@ def get_comp_borders(c, root):
     return c_x - c_w, c_y - c_h, c_x + c_w, c_y + c_h
 
 
-def layout_inner_elements(graph, c_id, (c_left_x, c_bottom_y, c_right_x, c_top_y)):
+def layout_inner_elements(graph, c_id, c_left_x, c_bottom_y, c_right_x, c_top_y):
     root = graph.getRoot()
 
     neighbours_outside_comp = lambda r: [n for n in graph.getInOutNodes(r) if root[COMPARTMENT_ID][n] != c_id]
@@ -273,7 +273,7 @@ def bend_edges_around_compartments(graph, es):
                         if (x, y) != (s_x, s_y) and (x, y) != (t_x, t_y):
                             bends.append((x, y))
                 if len(bends) == 2:
-                    bends = sorted(bends, key=lambda (x, y): 0 if (s_x == x or s_y == y) else 1)
+                    bends = sorted(bends, key=lambda x, y: 0 if (s_x == x or s_y == y) else 1)
                 if bends:
                     root[VIEW_LAYOUT][e] = [tlp.Coord(x, y) for (x, y) in bends]
                 break

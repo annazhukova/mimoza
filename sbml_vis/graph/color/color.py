@@ -115,7 +115,7 @@ def color(graph):
 
 def get_n_colors(n, s, v):
     return [(int(255 * r), int(255 * g), int(255 * b)) for (r, g, b) in
-            (colorsys.hsv_to_rgb(x * 1.0 / n, s, v) for x in xrange(n))]
+            (colorsys.hsv_to_rgb(x * 1.0 / n, s, v) for x in range(n))]
 
 
 def color_by_compartment(graph, c_id2m_ids):
@@ -127,12 +127,12 @@ def color_by_compartment(graph, c_id2m_ids):
     colors = get_n_colors(i, 0.7, 0.8)
     ub_colors = get_n_colors(i, 0.2, 0.8)
 
-    key2color = dict(zip(c_id2m_ids.iterkeys(), colors[1:]))
-    key2ub_color = dict(zip(c_id2m_ids.iterkeys(), ub_colors[1:]))
+    key2color = dict(zip(c_id2m_ids.keys(), colors[1:]))
+    key2ub_color = dict(zip(c_id2m_ids.keys(), ub_colors[1:]))
 
     m_id2color = {}
     m_id2ub_color = {}
-    for c_id, m_ids in c_id2m_ids.iteritems():
+    for c_id, m_ids in c_id2m_ids.items():
         for m_id in m_ids:
             m_id2color[m_id] = key2color[c_id]
             m_id2ub_color[m_id] = key2ub_color[c_id]
@@ -167,10 +167,10 @@ def color_by_pathway(graph, pw2r_ids):
 
     colors = get_n_colors(i, 0.5, 0.8)
 
-    key2color = dict(zip(pw2r_ids.iterkeys(), colors[1:]))
+    key2color = dict(zip(pw2r_ids.keys(), colors[1:]))
 
     r_id2color = {}
-    for pw, r_ids in pw2r_ids.iteritems():
+    for pw, r_ids in pw2r_ids.items():
         for r_id in r_ids:
             r_id2color[r_id] = key2color[pw]
 

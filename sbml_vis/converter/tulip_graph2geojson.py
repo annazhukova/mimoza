@@ -271,8 +271,8 @@ def meta_graph2features(c_id2info, c_id2outs, meta_graph, r2rs_ps, n2xy=None, id
 
     all_c_id2c_borders = {}
     while True:
-        for c_id, sizes in c_id2c_borders.iteritems():
-            layout_inner_elements(meta_graph, c_id, sizes)
+        for c_id, sizes in c_id2c_borders.items():
+            layout_inner_elements(meta_graph, c_id, *sizes)
 
         if n2xy:
             apply_node_coordinates(meta_graph, n2xy)
@@ -299,9 +299,9 @@ def meta_graph2features(c_id2info, c_id2outs, meta_graph, r2rs_ps, n2xy=None, id
             all_c_id2c_borders.update(c_id2c_borders)
         open_meta_ns(meta_graph, metas)
 
-    for c_id in c_id2info.iterkeys():
+    for c_id in c_id2info.keys():
         (name, go, (l, out_c_id)) = c_id2info[c_id]
-        comp_n = comp_to_meta_node(meta_graph, c_id, (go, name), out_c_id, False, n2xy)
+        comp_n = comp_to_meta_node(meta_graph, c_id, go, name, out_c_id, False, n2xy)
         if not comp_n:
             continue
         bend_edges(meta_graph)
@@ -367,8 +367,8 @@ def graph2geojson(c_id2info, c_id2outs, graph, n2xy=None, colorer=color, id2mask
     hidden_c_ids, c_id_hidden_ubs = filter_features(c_id2level2features)
     rescale(c_id2level2features)
     get_l2fs = lambda l2fs: {lev: geojson.FeatureCollection(features, geometry=geometry) for (lev, features) in
-                             l2fs.iteritems()}
-    return {c_id: get_l2fs(l2fs) for (c_id, l2fs) in c_id2level2features.iteritems()}, (n2lo, e2lo), \
+                             l2fs.items()}
+    return {c_id: get_l2fs(l2fs) for (c_id, l2fs) in c_id2level2features.items()}, (n2lo, e2lo), \
            hidden_c_ids, c_id_hidden_ubs
 
 
@@ -394,7 +394,7 @@ def filter_features(c_id2level2features):
 
 
 def rescale(c_id2level2features):
-    for c_id, lev2fs in c_id2level2features.iteritems():
+    for c_id, lev2fs in c_id2level2features.items():
         if ALL_COMPARTMENTS == c_id:
             continue
         fs = []
@@ -425,7 +425,7 @@ def rescale(c_id2level2features):
             continue
 
         processed = set()
-        for fs in lev2fs.itervalues():
+        for fs in lev2fs.values():
             for f in fs:
                 if f.id in processed:
                     continue
@@ -447,14 +447,14 @@ def process_compartments(c_id2info, meta_graph, n2xy=None):
     # root = meta_graph.getRoot()
     factor_nodes(meta_graph)
 
-    current_zoom_level = max({info[2][0] for info in c_id2info.itervalues()})
+    current_zoom_level = max({info[2][0] for info in c_id2info.values()})
     while current_zoom_level >= 0:
-        for c_id in c_id2info.iterkeys():
+        for c_id in c_id2info.keys():
             (name, go, (l, out_c_id)) = c_id2info[c_id]
             if current_zoom_level == l:
                 # ns = [n for n in meta_graph.getNodes() if root[COMPARTMENT_ID][n] == c_id]
                 # factor_nodes(meta_graph, ns)
-                comp_to_meta_node(meta_graph, c_id, (go, name), out_c_id, True, n2xy)
+                comp_to_meta_node(meta_graph, c_id, go, name, out_c_id, True, n2xy)
         current_zoom_level -= 1
         if n2xy:
             apply_node_coordinates(meta_graph, n2xy)

@@ -33,7 +33,7 @@ def archive(path, zip_file):
         manifest.write('<omexManifest xmlns="http://identifiers.org/combine.specifications/omex-manifest">\n')
         manifest.write(
             '<content location="./manifest.xml" format="http://identifiers.org/combine.specifications/omex-manifest"/>\n')
-        for location, f_format in location2format.iteritems():
+        for location, f_format in location2format.items():
             manifest.write('<content location="%s" format="%s"/>\n' % (os.path.join(".", location), f_format))
         manifest.write('</omexManifest>')
 

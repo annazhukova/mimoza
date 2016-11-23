@@ -115,7 +115,7 @@ def process_file(sbml_file):
         os.remove(sbml_file)
     return OK, (model_id, model.getName(), m_id)
 
-print '''Content-Type: text/html;charset=utf-8
+print('''Content-Type: text/html;charset=utf-8
 
 
         <html lang="en">
@@ -139,7 +139,7 @@ print '''Content-Type: text/html;charset=utf-8
           <body>
           <p class="info">We are checking your model now...</p>
           <img class="img-centre" src="http://mimoza.bordeaux.inria.fr/lib/modelmap/loader.gif" id="img" />
-          <div id="hidden" style="visibility:hidden;height:0px;">'''
+          <div id="hidden" style="visibility:hidden;height:0px;">''')
 sys.stdout.flush()
 
 result, args = upload_file()
@@ -159,11 +159,11 @@ elif ALREADY_GENERALIZED == result:
     url = '%s/%s/index.html' % (MIMOZA_URL, m_dir_id)
 
 
-print '''</div>
+print('''</div>
           </body>
           <script type="text/javascript">
                 window.location = "%s"
           </script>
-        </html>''' % url
+        </html>''' % url)
 sys.stdout.flush()
 

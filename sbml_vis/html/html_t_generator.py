@@ -8,6 +8,8 @@ from sbml_vis.mimoza_path import PROGRESS_ICON, LEAFLET_LABEL_CSS, LEAFLET_CSS, 
     MIMOZA_GEOJSON_JS, MIMOZA_POPUP_JS, MIMOZA_JS
 from sbml_vis.converter.tlp2geojson import DEFAULT_LAYER2MASK
 
+VISUALIZATION = 'Visualization'
+
 __author__ = 'anna'
 
 
@@ -22,12 +24,12 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
     env = Environment(loader=PackageLoader('sbml_vis.html', 'templates'))
     template = env.get_template('map_tab.html')
     c_id2json_vars = '{%s}' % ", ".join(
-        ("'%s':[%s]" % (c_id, ", ".join(json_vars)) for (c_id, json_vars) in c_id2json_vars.iteritems()))
+        ("'%s':[%s]" % (c_id, ", ".join(json_vars)) for (c_id, json_vars) in c_id2json_vars.items()))
     logging.info('Rendering the model...')
-    model_name = model_name.decode('utf-8') if model_name else ''
-    model_id = model_id.decode('utf-8') if model_id else ''
-    map_id = map_id.decode('utf-8') if map_id else ''
-    layer2mask = '[%s]' % ", ".join(("['%s', %d]" % (l_id, m) for (l_id, m) in layer2mask.iteritems()))
+    model_name = model_name if model_name else ''
+    model_id = model_id if model_id else ''
+    map_id = map_id if map_id else ''
+    layer2mask = '[%s]' % ", ".join(("['%s', %d]" % (l_id, m) for (l_id, m) in layer2mask.items()))
     return template.render(non_empty=non_empty,
                            model_name=model_name,
                            model_id=model_id,
@@ -35,7 +37,7 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
                            c_id2json_vars=c_id2json_vars,
                            map_id=map_id,
                            c_id2out_c_id=c_id2out_c_id,
-                           comp_c_id2name=sorted(c_id2name.iteritems(), key=lambda (_, c_name): c_name)
+                           comp_c_id2name=sorted(c_id2name.items(), key=lambda it: it[1])
                            if len(c_id2name) > 1 else None,
                            c_id2name=c_id2name, layer2mask=layer2mask,
                            hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs, info=info, invisible_layers=[])
@@ -43,14 +45,14 @@ def get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2jso
 
 def create_html(non_empty, model_name, model_id, c_id2name,
                 directory, json_files, c_id2json_vars, map_id, c_id2out_c_id, hidden_c_ids, c_id_hidden_ubs,
-                layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title='', h1='', info='', invisible_layers=None):
+                layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title='', h1='', invisible_layers=None):
 
     if not invisible_layers:
         invisible_layers = []
 
-    model_name = model_name.decode('utf-8') if model_name else ''
-    model_id = model_id.decode('utf-8') if model_id else ''
-    map_id = map_id.decode('utf-8') if map_id else ''
+    model_name = model_name if model_name else ''
+    model_id = model_id if model_id else ''
+    map_id = map_id if map_id else ''
     if not title:
         title = 'Visualization of <a href="http://www.ebi.ac.uk/biomodels-main/%s">%s</a>' % (model_id, model_name)
     if not h1:
@@ -58,7 +60,10 @@ def create_html(non_empty, model_name, model_id, c_id2name,
 
     vis_tab = get_vis_tab(non_empty, model_name, model_id, c_id2name, json_files, c_id2json_vars, map_id, c_id2out_c_id,
                           hidden_c_ids, c_id_hidden_ubs, layer2mask=DEFAULT_LAYER2MASK, info='')
-    tab2html['Visualization'] = vis_tab, "icon-happy"
+    tab2html[VISUALIZATION] = vis_tab, "icon-happy"
+
+    # Make sure that visualisation goes first
+    tab2html = sorted(tab2html.items(), key=lambda it: (2, it[0]) if it[0] != VISUALIZATION else (1, it[0]))
 
     env = Environment(loader=PackageLoader('sbml_vis.html', 'templates'))
     template = env.get_template('tabbed_page.html')

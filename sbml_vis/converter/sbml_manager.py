@@ -111,7 +111,7 @@ def link_reaction_to_species(s_refs, r_glyph, l_id, r_id, n2lo, role):
         s_ref_glyph.setId("srg_%s_%s_%s" % (l_id, r_id, s_id))
         s_glyph_id_suffix = s_id
         if isinstance(n2lo[s_id], dict):
-            for r_ids in n2lo[s_id].iterkeys():
+            for r_ids in n2lo[s_id].keys():
                 if r_id in r_ids:
                     s_glyph_id_suffix = "%s_%s" % (s_id, '_'.join(r_ids))
         s_ref_glyph.setSpeciesGlyphId("sg_%s_%s" % (l_id, s_glyph_id_suffix))
@@ -173,7 +173,7 @@ def create_layout(n2lo, layout_model, layout_plugin, ub_sps, model):
         s_name = species.getName()
         if s_id in n2lo:
             if isinstance(n2lo[s_id], dict):
-                elements = n2lo[s_id].iteritems()
+                elements = n2lo[s_id].items()
             else:
                 elements = [('', n2lo[s_id])]
             for r_ids, [(x, y), (w, h)] in elements:

@@ -87,7 +87,7 @@ def apply_node_coordinates(graph, n2xy):
         if n_id in n2xy:
             xywh = n2xy[n_id]
             if isinstance(xywh, dict):
-                for r_id, ((x, y), (w, h)) in xywh.iteritems():
+                for r_id, ((x, y), (w, h)) in xywh.items():
                     if root[CLONE_ID][n].find(r_id) != -1:
                         root[VIEW_LAYOUT][n] = tlp.Coord(x, y)
                         root[VIEW_SIZE][n] = tlp.Size(w, h)
@@ -104,7 +104,7 @@ def apply_node_coordinates(graph, n2xy):
                 if root[ID][m] in n2xy:
                     xywh_ = n2xy[root[ID][m]]
                     if isinstance(xywh_, dict):
-                        for r_id, ((x_, y_), (w_, h_)) in xywh_.iteritems():
+                        for r_id, ((x_, y_), (w_, h_)) in xywh_.items():
                             if root[CLONE_ID][m].find(r_id) != -1:
                                 x += x_
                                 y += y_

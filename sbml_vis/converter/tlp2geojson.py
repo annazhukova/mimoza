@@ -35,7 +35,10 @@ BETA_UP = 15 * math.pi / 16
 BETA_DOWN = 17 * math.pi / 16
 
 
-def get_border_coord((x, y), (other_x, other_y), (w, h), n_type):
+def get_border_coord(xy, other_xy, wh, n_type):
+    (x, y) = xy
+    (other_x, other_y) = other_xy
+    (w, h) = wh
     if n_type == TYPE_REACTION:
         edge_angle = degrees(atan2(other_y - y, other_x - x)) if other_y != y or other_x != x else 0
         diag_angle = degrees(atan2(h, w))
@@ -172,7 +175,6 @@ def n2feature(graph, n, n_id, c_id2info, r2rs_ps, transport, mask=DEFAULT_LAYER,
 
         props.update({HEIGHT: h, COLOR: get_compartment_color(color)})
     elif TYPE_SPECIES == node_type:
-        props[LABEL] = get_short_name(graph, n, onto)
         if root[FORMULA][n]:
             props[FORMULA] = convert_formula_to_html(root[FORMULA][n])
         props[LABEL] = get_short_name(graph, n, onto)
@@ -259,12 +261,13 @@ def get_formula(graph, r, r2rs_ps, reversible):
     root = graph.getRoot()
     name_prop = NAME
     format_st = lambda st: "" if st == 1 else ("%g" % st)
-    formatter = lambda (st, n), prop: [root[prop if root[prop][n] else NAME][n], format_st(float(st))]
+    formatter = lambda st, n, prop: [root[prop if root[prop][n] else NAME][n], format_st(float(st))]
     if graph.isMetaNode(r):
         r = root[VIEW_META_GRAPH][r].getOneNode()
         name_prop = ANCESTOR_NAME
     rs, ps = r2rs_ps[r]
-    rs, ps = sorted(formatter(it, name_prop) for it in rs), sorted(formatter(it, name_prop) for it in ps)
+    rs, ps = sorted(formatter(it[0], it[1], name_prop) for it in rs), \
+             sorted(formatter(it[0], it[1], name_prop) for it in ps)
 
     env = Environment(loader=PackageLoader('sbml_vis.html', 'templates'))
     template = env.get_template('formula.html')

@@ -18,10 +18,10 @@ from sbml_vis.file.serializer import serialize, ABOUT_TAB, DOWNLOAD_TAB
 from sbml_generalization.generalization.sbml_generalizer import generalize_model, ubiquitize_model
 from mod_sbml.onto import parse_simple
 from mod_sbml.annotation.chebi.chebi_serializer import get_chebi
-from sbml_vis.converter.sbgn_helper import save_as_sbgn
 from sbml_generalization.sbml.sbml_helper import check_for_groups, SBO_CHEMICAL_MACROMOLECULE, GROUP_TYPE_UBIQUITOUS
 from sbml_vis.converter.sbml_manager import parse_layout_sbml, LoPlError, save_as_layout_sbml
 from sbml_vis.graph.transformation_manager import scale
+from sbml_vis.converter.sbgn_helper import save_as_sbgn
 
 __author__ = 'anna'
 
@@ -81,7 +81,6 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
         logging.captureWarnings(True)
         logging.basicConfig(level=logging.INFO, format='%(asctime)s: %(message)s',
                             datefmt="%Y-%m-%d %H:%M:%S", filename=log_file)
-        logging.captureWarnings(True)
 
     # Generalize the model if needed
     groups_sbml = os.path.join(directory, '%s_with_groups.xml' % model_id)
@@ -94,11 +93,11 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
         chebi = parse_simple(get_chebi())
         if generalize:
             logging.info('Generalizing the model...')
-            generalize_model(groups_sbml, gen_sbml, sbml, chebi, ub_chebi_ids=ub_ch_ids)
+            generalize_model(sbml, chebi, groups_sbml, gen_sbml, ub_chebi_ids=ub_ch_ids)
         else:
             gen_sbml = None
             logging.info('Ubiquitizing the model...')
-            ubiquitize_model(groups_sbml, sbml, chebi, ub_chebi_ids=ub_ch_ids)
+            ubiquitize_model(sbml, chebi, groups_sbml, ub_chebi_ids=ub_ch_ids)
 
     # Visualize the model
     reader = libsbml.SBMLReader()
@@ -108,7 +107,7 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
     root, c_id2info, c_id2outs, chebi, ub_sps = import_sbml(input_model, groups_sbml)
 
     c_id2out_c_id = {}
-    for c_id, c_info in c_id2info.iteritems():
+    for c_id, c_info in c_id2info.items():
         _, _, (_, out_c_id) = c_info
         if out_c_id:
             c_id2out_c_id[c_id] = out_c_id
@@ -125,7 +124,7 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
                         value = n2xy[n_id]
                         if isinstance(value, dict):
                             value = {r_id: (scale(xy, scale_factor), scale(wh, scale_factor))
-                                     for (r_id, (xy, wh)) in value.iteritems()}
+                                     for (r_id, (xy, wh)) in value.items()}
                         else:
                             xy, wh = value
                             value = scale(xy, scale_factor), scale(wh, scale_factor)
@@ -146,19 +145,29 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
         save_as_layout_sbml(groups_model, gen_model, groups_sbml, gen_sbml, n2lo, ub_sps)
         groups_sbgn = os.path.join(directory, '%s.sbgn' % model_id)
         gen_sbgn = os.path.join(directory, '%s_generalized.sbgn' % model_id)
-        save_as_sbgn(n2lo, e2lo, groups_model, groups_sbgn)
-        logging.info('   exported as SBGN %s' % groups_sbgn)
+
+        try:
+            save_as_sbgn(n2lo, e2lo, groups_model, groups_sbgn)
+            logging.info('   exported as SBGN %s' % groups_sbgn)
+        except Exception as e:
+            logging.error("Didn't manage to save to SBGN: %s" % e)
+
         out_json = os.path.join(directory, '%s.cyjs' % model_id)
         save_as_cytoscape_json(n2lo, model, out_json, ub_sps)
         logging.info('   exported as Cytoscape json %s' % out_json)
         if gen_model:
-            save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
+            try:
+                save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
+                logging.info('   exported as SBGN %s' % groups_sbgn)
+            except Exception as e:
+                logging.error("Didn't manage to save to SBGN: %s" % e)
+
             out_json = os.path.join(directory, '%s_generalized.cyjs' % model_id)
             save_as_cytoscape_json(n2lo, gen_model, out_json, ub_sps)
 
     # Serialize the result
     serialize(directory=directory, m_dir_id=web_page_prefix, input_model=input_model, c_id2level2features=fc,
               c_id2out_c_id=c_id2out_c_id, hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs, tabs=tabs,
-              groups_sbml=groups_sbml, layer2mask=layer2mask, tab2html=tab2html, title=title, h1=h1, info=info,
+              groups_sbml=groups_sbml, layer2mask=layer2mask, tab2html=tab2html, title=title, h1=h1,
               invisible_layers=invisible_layers)
 

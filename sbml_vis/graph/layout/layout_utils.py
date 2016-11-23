@@ -24,7 +24,7 @@ def get_distance(qo):
         neighbour_sizes = {n2size[m] for m in qo.getOutNodes(n) if m in n2size}
         return max(neighbour_sizes) if neighbour_sizes else 0
 
-    return max(n2size[n] + get_neighbour_size(n) for n in n2size.iterkeys()) / 2
+    return max(n2size[n] + get_neighbour_size(n) for n in n2size.keys()) / 2
 
 
 def layout_hierarchically(qo, margin=1):

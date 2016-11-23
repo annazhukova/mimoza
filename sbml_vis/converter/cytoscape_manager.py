@@ -102,7 +102,7 @@ def save_as_cytoscape_json(n2lo, model, out_json, ub_sp_ids):
                 glyph_type = SBO_2_GLYPH_TYPE[sbo_term]
         if s_id in n2lo:
             if isinstance(n2lo[s_id], dict):
-                elements = n2lo[s_id].iteritems()
+                elements = n2lo[s_id].items()
             else:
                 elements = [('', n2lo[s_id])]
             for r_ids, coords in elements:
@@ -117,7 +117,7 @@ def save_as_cytoscape_json(n2lo, model, out_json, ub_sp_ids):
 
     def get_sref_id(s_id):
         if isinstance(n2lo[s_id], dict):
-            for r_ids in n2lo[s_id].iterkeys():
+            for r_ids in n2lo[s_id].keys():
                 if r_id in r_ids:
                     return "%s_%s" % (s_id, '_'.join(r_ids))
         return s_id

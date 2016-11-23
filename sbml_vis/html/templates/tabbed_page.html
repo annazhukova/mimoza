@@ -37,7 +37,7 @@
                 <ul>
                 {% if tab2html %}
                     {% set i = 0 %}
-                    {% for (tab, (html, class)) in tab2html.iteritems() %}
+                    {% for (tab, (html, class)) in tab2html %}
                     <li><a href="#tab-{{i}}" class="{% if class %}{{class}}{% else %}icon-stats-dots{% endif %}"><span>{{tab}}</span></a></li>
                     {% set i = i + 1 %}
                     {% endfor %}
@@ -47,7 +47,7 @@
             <div class="content">
             {% if tab2html %}
                 {% set i = 0 %}
-                {% for (tab, (html, class)) in tab2html.iteritems() %}
+                {% for (tab, (html, class)) in tab2html %}
                 <section id="tab-{{i}}">
                     <div class="just">
                         {{html}}
