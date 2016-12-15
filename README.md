@@ -34,13 +34,19 @@ Zhukova, A., Sherman, D. J. (2015) **Mimoza: Web-Based Semantic Zooming and Navi
 
 ## Dependencies
 
-*Mimoza* uses [libSBML](http://sbml.org/Software/libSBML>) library for python with the groups and layout extensions.
+*Mimoza* uses [libSBML](http://sbml.org/Software/libSBML) library for python with the groups and layout extensions.
 To install it:
 
 * sudo pip install python-libsbml-experimental
 
-*Mimoza* uses [Model Generalization](http://metamogen.gforge.inria.fr) library for python to produce generalized views of the model.
+*Mimoza* uses [Model Generalization](https://github.com/annazhukova/mod_gen) library for python to produce generalized views of the model.
 To install it, please download and extract the source files from [GitHub](https://github.com/annazhukova/mod_gen).
+From the directory where you have extracted it, execute:
+
+* sudo python setup.py
+
+*Mimoza* uses [Mod_SBML](https://github.com/annazhukova/mod_sbml) library.
+To install it, please download and extract the source files from [GitHub](https://github.com/annazhukova/mod_sbml).
 From the directory where you have extracted it, execute:
 
 * sudo python setup.py
