@@ -375,7 +375,7 @@ def graph2geojson(c_id2info, c_id2outs, graph, n2xy=None, colorer=color, id2mask
 def filter_features(c_id2level2features):
     c_ids = c_id2level2features.keys()
     c_id_hidden_ubs, hidden_c_ids = set(), set()
-    for c_id in c_ids:
+    for c_id in set(c_ids):
         l2fs = c_id2level2features[c_id]
         total_f_number = 0
         levels = l2fs.keys()
