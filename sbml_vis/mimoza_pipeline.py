@@ -32,7 +32,8 @@ def get_lib():
 
 def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize=True, log_file=None,
                  id2mask=None, layer2mask=DEFAULT_LAYER2MASK, tab2html=None, title=None, h1=None,
-                 id2color=None, tabs={ABOUT_TAB, DOWNLOAD_TAB}, info='', invisible_layers=None):
+                 id2color=None, tabs={ABOUT_TAB, DOWNLOAD_TAB}, info='', invisible_layers=None,
+                 sbgn=True, cytoscape=True):
     """
     Generalizes and visualizes a given SBML model.
     :param sbml: a path to the input SBML file
@@ -143,27 +144,32 @@ def process_sbml(sbml, verbose, ub_ch_ids=None, web_page_prefix=None, generalize
         else:
             gen_model = False
         save_as_layout_sbml(groups_model, gen_model, groups_sbml, gen_sbml, n2lo, ub_sps)
-        groups_sbgn = os.path.join(directory, '%s.sbgn' % model_id)
-        gen_sbgn = os.path.join(directory, '%s_generalized.sbgn' % model_id)
 
-        try:
-            save_as_sbgn(n2lo, e2lo, groups_model, groups_sbgn)
-            logging.info('   exported as SBGN %s' % groups_sbgn)
-        except Exception as e:
-            logging.error("Didn't manage to save to SBGN: %s" % e)
+        if sbgn:
+            groups_sbgn = os.path.join(directory, '%s.sbgn' % model_id)
+            gen_sbgn = os.path.join(directory, '%s_generalized.sbgn' % model_id)
 
-        out_json = os.path.join(directory, '%s.cyjs' % model_id)
-        save_as_cytoscape_json(n2lo, model, out_json, ub_sps)
-        logging.info('   exported as Cytoscape json %s' % out_json)
-        if gen_model:
             try:
-                save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
+                save_as_sbgn(n2lo, e2lo, groups_model, groups_sbgn)
                 logging.info('   exported as SBGN %s' % groups_sbgn)
             except Exception as e:
                 logging.error("Didn't manage to save to SBGN: %s" % e)
 
-            out_json = os.path.join(directory, '%s_generalized.cyjs' % model_id)
-            save_as_cytoscape_json(n2lo, gen_model, out_json, ub_sps)
+            if gen_model:
+                try:
+                    save_as_sbgn(n2lo, e2lo, gen_model, gen_sbgn)
+                    logging.info('   exported as SBGN %s' % groups_sbgn)
+                except Exception as e:
+                    logging.error("Didn't manage to save to SBGN: %s" % e)
+
+        if cytoscape:
+            out_json = os.path.join(directory, '%s.cyjs' % model_id)
+            save_as_cytoscape_json(n2lo, model, out_json, ub_sps)
+            logging.info('   exported as Cytoscape json %s' % out_json)
+
+            if gen_model:
+                out_json = os.path.join(directory, '%s_generalized.cyjs' % model_id)
+                save_as_cytoscape_json(n2lo, gen_model, out_json, ub_sps)
 
     # Serialize the result
     serialize(directory=directory, m_dir_id=web_page_prefix, input_model=input_model, c_id2level2features=fc,

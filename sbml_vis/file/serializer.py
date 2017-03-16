@@ -66,8 +66,12 @@ def serialize(directory, m_dir_id, input_model, c_id2level2features, c_id2out_c_
 
     c_id2name = {c.getId(): c.getName() for c in input_model.getListOfCompartments()} # if c.getId() in c_id2geojson_names}
     if ALL_COMPARTMENTS in c_id2geojson_names:
-        c_id2name[ALL_COMPARTMENTS] = "All compartment view"
-    hidden_c_ids -= {ALL_COMPARTMENTS}
+        if len(c_id2name) == 1:
+            hidden_c_ids.add(next(iter(c_id2name.keys())))
+            c_id2name = {ALL_COMPARTMENTS: 'All compartment view'}
+        else:
+            c_id2name[ALL_COMPARTMENTS] = "All compartment view"
+        hidden_c_ids -= {ALL_COMPARTMENTS}
 
     c_id_hidden_ubs = list(c_id_hidden_ubs)
     hidden_c_ids = list(hidden_c_ids)
@@ -78,11 +82,7 @@ def serialize(directory, m_dir_id, input_model, c_id2level2features, c_id2out_c_
                 tab2html=tab2html, hidden_c_ids=hidden_c_ids, c_id_hidden_ubs=c_id_hidden_ubs,
                 invisible_layers=invisible_layers)
     if non_empty and tabs and DOWNLOAD_TAB in tabs:
-        temp_copy = os.path.join(directory, m_dir_id)
-        archive_path = os.path.join(directory, "%s.zip" % m_dir_id)
-        if not os.path.exists(temp_copy):
-            copytree(directory, temp_copy)
-        if os.path.exists(temp_copy):
-            archive(temp_copy, archive_path)
-            shutil.rmtree(temp_copy)
+        archive_path = os.path.join(directory, '..', "%s.zip" % m_dir_id)
+        archive(directory, archive_path)
+        shutil.move(archive_path, os.path.join(directory, "%s.zip" % m_dir_id))
     return c_id2geojson_files, c_id2geojson_names
