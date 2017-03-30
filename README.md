@@ -37,35 +37,41 @@ Zhukova, A., Sherman, D. J. (2015) **Mimoza: Web-Based Semantic Zooming and Navi
 *Mimoza* uses [libSBML](http://sbml.org/Software/libSBML) library for python with the groups and layout extensions.
 To install it:
 
-* sudo pip install python-libsbml-experimental
+```bash
+sudo pip3 install python-libsbml-experimental
+```
 
-*Mimoza* uses [Model Generalization](https://github.com/annazhukova/mod_gen) library for python to produce generalized views of the model.
-To install it, please download and extract the source files from [GitHub](https://github.com/annazhukova/mod_gen).
-From the directory where you have extracted it, execute:
+*Mimoza* uses [Model Generalization](https://github.com/annazhukova/mod_gen) library for python 
+to produce generalized views of the model and [Mod_SBML](https://github.com/annazhukova/mod_sbml) library.
+To install them
 
-* sudo python setup.py
-
-*Mimoza* uses [Mod_SBML](https://github.com/annazhukova/mod_sbml) library.
-To install it, please download and extract the source files from [GitHub](https://github.com/annazhukova/mod_sbml).
-From the directory where you have extracted it, execute:
-
-* sudo python setup.py
+```bash
+sudo pip3 install mod_sbml
+sudo pip3 install sbml_generalization
+```
 
 *Mimoza* uses [Tulip 4.4](http://tulip.labri.fr/Documentation/current/tulip-python/html/index.html) library for python to layout metabolic networks.
 To install it:
 
-* sudo pip install tulip-python
+```bash
+sudo pip3 install tulip-python
+```
 
 *Mimoza* uses [SymPy](http://www.sympy.org), Python bindings for [geojson](https://pypi.python.org/pypi/geojson),
 and [Jinja2] (http://jinja.pocoo.org):
 
-* sudo pip install sympy
-* sudo pip install geojson
-* sudo pip install Jinja2
+```bash
+sudo pip3 install sympy
+sudo pip3 install geojson
+sudo pip3 install Jinja2
+```
 
-If you want to have export of your maps in [SBGN PD](http://www.sbgn.org), install [libSBGN bindings for Python](https://github.com/matthiaskoenig/libsbgn-python):
+If you want to have export of your maps in [SBGN PD](http://www.sbgn.org), 
+install [libSBGN bindings for Python](https://github.com/matthiaskoenig/libsbgn-python):
   
-* sudo pip install libsbgnpy
+```bash
+sudo pip3 install libsbgnpy
+```
 
 *Mimoza* also uses [Leaflet](http://leafletjs.com/), [the ChEBI Ontology](http://www.ebi.ac.uk/chebi/),
 and [the Gene Ontology](http://geneontology.org), but you do not need to install them.
@@ -77,7 +83,9 @@ and [the Gene Ontology](http://geneontology.org), but you do not need to install
 
 From the directory where you have extracted this archive, execute:
 
-* python setup.py
+```bash
+python3 setup.py
+```
 
 Do not forget to install the dependencies (see above).
 
@@ -86,7 +94,9 @@ Do not forget to install the dependencies (see above).
 
 Execute:
   
-* python ./main.py --model path_to_your_model.xml --verbose
+```bash
+python3 ./main.py --model path_to_your_model.xml --verbose
+```
 
 This will produce a [COMBINE archive](http://co.mbine.org/documents/archive), containing:
 

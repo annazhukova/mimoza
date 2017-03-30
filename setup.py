@@ -1,37 +1,36 @@
 import os
-from setuptools import setup, find_packages
-from sys import version
+from distutils.core import setup
 
-__author__ = 'anna'
-
-if version < '2.2.3':
-    from distutils.dist import DistributionMetadata
-
-    DistributionMetadata.classifiers = None
-    DistributionMetadata.download_url = None
-
-
-setup(name='mimoza',
+setup(name='sbml_vis',
       description='SBML zoomable visualization utilities.',
-      long_description=open('README.txt').read(),
+      long_description=open('README.md').read(),
       author='Anna Zhukova',
       author_email='zhutchok@gmail.com',
-      url='http://mimoza.bordeaux.inria.fr/',
-      version='1.0',
-      packages=find_packages(),
-      package_data={'sbml_vis.html': [os.path.join('templates', '*.html')]},
+      url='https://github.com/annazhukova/mimoza',
+      version='0.1',
+      packages=['sbml_vis'],
+      package_data={'sbml_vis': [os.path.join('html', 'templates', '*.html'),
+                                 os.path.join('converter', '*.py'),
+                                 os.path.join('file', '*.py'),
+                                 os.path.join('graph', '*.py'),
+                                 os.path.join('graph', '*', '*.py'),
+                                 os.path.join('html', '*.py'),
+                                 os.path.join('..', 'main.py'),
+                                 os.path.join('..', 'lib', '*'),
+                                 os.path.join('..', 'lib', '*', '*'),
+                                 os.path.join('..', 'lib', '*', '*', '*'),
+                                 os.path.join('..', 'lib', '*', '*', '*', '*')]},
       include_package_data=True,
       platform=['MacOS', 'Linux', 'Windows'],
       classifiers=[
           'Development Status :: 4 - Beta',
           'Environment :: Console',
           'Intended Audience :: Developers',
-          'License :: OSI Approved :: CEA CNRS Inria Logiciel Libre License, version 2.1 (CeCILL-2.1)',
           'Topic :: Scientific/Engineering :: Bio-Informatics',
           'Topic :: Scientific/Engineering :: Visualization',
           'Topic :: Software Development :: Libraries :: Python Modules',
       ],
-      download_url='http://mimoza.bordeaux.inria.fr/',
+      download_url='https://github.com/annazhukova/mimoza/archive/0.1.zip',
       requires=['sympy', 'geojson', 'jinja2', 'mod_sbml', 'tarjan', 'sbml_generalization',
                 'libsbgnpy', 'tulip-python', 'python-libsbml-experimental', 'pandas', 'urllib3']
       )
